@@ -1,0 +1,3 @@
+#git=git://anongit.freedesktop.org/wayland/wayland-protocols
+version=3
+https://wayland.freedesktop.org/releases/wayland-protocols-([\d].*)\.tar\.xz
