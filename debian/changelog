@@ -1,5 +1,5 @@
-wayland-protocols (1.0+git0b05b70-1) UNRELEASED; urgency=medium
+wayland-protocols (1.0-1) unstable; urgency=medium
 
   * Initial release (Closes: #814048)
 
- -- Héctor Orón Martínez <zumbi@debian.org>  Sun, 07 Feb 2016 20:01:14 +0100
+ -- Héctor Orón Martínez <zumbi@debian.org>  Mon, 08 Feb 2016 10:45:53 +0100
