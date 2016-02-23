@@ -6,7 +6,8 @@ Uploaders: Héctor Orón Martínez <zumbi@debian.org>
 Build-Depends:
  debhelper (>=9),
  dh-autoreconf,
- libwayland-dev
+ libwayland-dev,
+ pkg-config
 Standards-Version: 3.9.6
 Homepage: http://wayland.freedesktop.org/
 Vcs-Git: git://anonscm.debian.org/pkg-xorg/wayland/wayland-protocols.git
