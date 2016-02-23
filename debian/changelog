@@ -1,8 +1,8 @@
-wayland-protocols (1.1-2) UNRELEASED; urgency=medium
+wayland-protocols (1.1-2) unstable; urgency=medium
 
   * d/control: build depend on wayland-scanner and pkg-config.
 
- -- Héctor Orón Martínez <zumbi@debian.org>  Tue, 23 Feb 2016 22:59:11 +0100
+ -- Héctor Orón Martínez <zumbi@debian.org>  Tue, 23 Feb 2016 23:05:29 +0100
 
 wayland-protocols (1.1-1) unstable; urgency=medium
 
