@@ -1,3 +1,9 @@
+wayland-protocols (1.3-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Héctor Orón Martínez <zumbi@debian.org>  Mon, 04 Apr 2016 09:58:48 +0200
+
 wayland-protocols (1.1-2) unstable; urgency=medium
 
   * d/control: build depend on wayland-scanner and pkg-config.
