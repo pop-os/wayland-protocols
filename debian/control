@@ -8,7 +8,7 @@ Build-Depends:
  dh-autoreconf,
  libwayland-dev,
  pkg-config
-Standards-Version: 3.9.6
+Standards-Version: 3.9.7
 Homepage: http://wayland.freedesktop.org/
 Vcs-Git: git://anonscm.debian.org/pkg-xorg/wayland/wayland-protocols.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-xorg/wayland/wayland-protocols.git
