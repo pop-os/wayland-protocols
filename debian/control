@@ -20,6 +20,7 @@ Priority: extra
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
+Multi-Arch: foreign
 Description: wayland compositor protocols
  Wayland protocols that add functionality not available in the Wayland core
  protocol. Such protocols either add completely new functionality, or extend
