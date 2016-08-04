@@ -1,9 +1,9 @@
-wayland-protocols (1.5-1) UNRELEASED; urgency=medium
+wayland-protocols (1.5-1) unstable; urgency=medium
 
   * New upstream release.
   * Add myself to Uploaders.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 04 Aug 2016 10:39:16 +0200
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 04 Aug 2016 10:46:55 +0200
 
 wayland-protocols (1.4-1) unstable; urgency=medium
 
