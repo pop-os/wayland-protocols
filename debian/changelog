@@ -7,6 +7,7 @@ wayland-protocols (1.9-1) UNRELEASED; urgency=medium
   * Add PGP key for Jonas Ådahl
   * Update Standards-Version to 4.0.0
   * Update debhelper to 10
+  * Add debian/source/format file to select 3.0 (quilt)
 
  -- Jordan Justen <jordan.l.justen@intel.com>  Fri, 21 Jul 2017 14:48:58 -0700
 
