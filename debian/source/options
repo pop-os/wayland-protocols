@@ -1,0 +1,1 @@
+diff-ignore = "\.git(/.+|ignore)|autogen.sh|m4/compat.m4"
