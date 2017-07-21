@@ -4,6 +4,7 @@ wayland-protocols (1.9-1) UNRELEASED; urgency=medium
 
   [ Jordan Justen ]
   * New upstream release
+  * Add PGP key for Jonas Ådahl
 
  -- Jordan Justen <jordan.l.justen@intel.com>  Fri, 21 Jul 2017 14:48:58 -0700
 
