@@ -1,3 +1,12 @@
+wayland-protocols (1.9-1) UNRELEASED; urgency=medium
+
+  * Team upload
+
+  [ Jordan Justen ]
+  * New upstream release
+
+ -- Jordan Justen <jordan.l.justen@intel.com>  Fri, 21 Jul 2017 14:48:58 -0700
+
 wayland-protocols (1.7-1) unstable; urgency=medium
 
   * New upstream release.
