@@ -3,7 +3,7 @@ wayland-protocols (1.9-1) UNRELEASED; urgency=medium
   * Team upload
 
   [ Jordan Justen ]
-  * New upstream release
+  * New upstream release (Closes: #869400)
   * Add PGP key for Jonas Ådahl
   * Update Standards-Version to 4.0.0
   * Update debhelper to 10
