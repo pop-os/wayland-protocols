@@ -1,4 +1,4 @@
-wayland-protocols (1.9-1) UNRELEASED; urgency=medium
+wayland-protocols (1.9-1) unstable; urgency=medium
 
   * Team upload
 
@@ -10,7 +10,7 @@ wayland-protocols (1.9-1) UNRELEASED; urgency=medium
   * Add debian/source/format file to select 3.0 (quilt)
   * Ignore some files for diff generation. (autogen.sh and m4/compat.m4)
 
- -- Jordan Justen <jordan.l.justen@intel.com>  Fri, 21 Jul 2017 14:48:58 -0700
+ -- Jordan Justen <jordan.l.justen@intel.com>  Mon, 24 Jul 2017 23:07:02 -0700
 
 wayland-protocols (1.7-1) unstable; urgency=medium
 
