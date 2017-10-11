@@ -8,7 +8,7 @@ Build-Depends:
  debhelper (>=10),
  libwayland-dev,
  pkg-config
-Standards-Version: 4.0.0
+Standards-Version: 4.1.1
 Homepage: http://wayland.freedesktop.org/
 Vcs-Git: git://anonscm.debian.org/pkg-xorg/wayland/wayland-protocols.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-xorg/wayland/wayland-protocols.git
