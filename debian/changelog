@@ -1,6 +1,7 @@
 wayland-protocols (1.11-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * debhelper 10 enables autoreconf for us.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 11 Oct 2017 19:19:27 +0200
 

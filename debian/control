@@ -6,7 +6,6 @@ Uploaders: Héctor Orón Martínez <zumbi@debian.org>,
            Emilio Pozuelo Monfort <pochu@debian.org>
 Build-Depends:
  debhelper (>=10),
- dh-autoreconf,
  libwayland-dev,
  pkg-config
 Standards-Version: 4.0.0
