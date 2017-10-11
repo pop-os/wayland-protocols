@@ -1,3 +1,9 @@
+wayland-protocols (1.11-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 11 Oct 2017 19:19:27 +0200
+
 wayland-protocols (1.10-1) unstable; urgency=medium
 
   * Team upload
