@@ -1,6 +1,7 @@
 wayland-protocols (1.13-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Switch priority from extra to optional.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 01 Mar 2018 09:31:19 +0100
 

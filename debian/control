@@ -16,7 +16,6 @@ Vcs-Browser: https://anonscm.debian.org/cgit/pkg-xorg/wayland/wayland-protocols.
 Package: wayland-protocols
 Section: libdevel
 Architecture: all
-Priority: extra
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
