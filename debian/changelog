@@ -1,9 +1,9 @@
-wayland-protocols (1.15-1) UNRELEASED; urgency=medium
+wayland-protocols (1.15-1) unstable; urgency=medium
 
   * New upstream release.
   * Update watchfile for new upstream website layout.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 09 Jul 2018 11:03:31 +0200
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 09 Jul 2018 12:46:00 +0200
 
 wayland-protocols (1.14-1) unstable; urgency=medium
 
