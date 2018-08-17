@@ -1,3 +1,9 @@
+wayland-protocols (1.16-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 17 Aug 2018 11:04:38 +0200
+
 wayland-protocols (1.15-1) unstable; urgency=medium
 
   * New upstream release.
