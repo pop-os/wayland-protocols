@@ -7,14 +7,21 @@ Copyright: © 2016 Héctor Orón Martínez <zumbi@debian.org>
 License: Expat
 
 Files: *
-Copyright: © 2008-2013 Kristian Høgsberg
-		   © 2010-2013 Intel Corporation
-		   © 2013      Rafael Antognolli
-		   © 2013      Jasper St. Pierre
-		   © 2014      Jonas Ådahl
-		   © 2014      Jason Ekstrand
-		   © 2014-2015 Collabora, Ltd.
-		   © 2015      Red Hat Inc.
+Copyright: © 2008-2013      Kristian Høgsberg
+		   © 2010-2013,2017 Intel Corporation
+		   © 2013-2018      Collabora, Ltd.
+		   © 2013           Rafael Antognolli
+		   © 2013           Jasper St. Pierre
+		   © 2014-2015      Jonas Ådahl
+		   © 2014-2015      Jason Ekstrand
+		   © 2014           Stephen "Lyude" Chandler Paul
+		   © 2015-2018      Red Hat Inc.
+		   © 2015, 2016     Jan Arne Petersen
+		   © 2015-2017      Samsung Electronics Co., Ltd
+		   © 2016           The Chromium Authors.
+		   © 2016           Yong Bakos
+		   © 2018           Purism SPC
+		   © 2018           Simon Ser
 License: Expat
 
 Permission is hereby granted, free of charge, to any person obtaining a
