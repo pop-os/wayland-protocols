@@ -37,17 +37,18 @@ deprecated protocols are placed in the +deprecated/+ directory.
 
 Protocol development procedure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To propose a new protocol, create a patch adding the relevant files and
-Makefile.am entry to the wayland-protocols git repository with the
-explanation and motivation in the commit message. Then send the patch to
-the wayland-devel@lists.freedesktop.org mailing list using
-'git send-email' with the subject prefix 'RFC wayland-protocols' or
-'PATCH wayland-protocols' depending on what state the protocol is in.
+To propose a new protocol, create a GitLab merge request adding the
+relevant files and Makefile.am entry to the repository with the
+explanation and motivation in the commit message. Protocols are
+organized in namespaces describing their scope ("wp", "xdg" and "ext").
+There are different requirements for each namespace, see GOVERNANCE
+section 2 for more information.
 
-To propose changes to existing protocols, create a patch with the
-changes and send it to the list mentioned above while also CC:ing the
-maintainers mentioned in the README file. Use the same rule for adding a
-subject prefix as above and method for sending the patch.
+If the new protocol is just an idea, open an issue on the GitLab issue
+tracker. If the protocol isn't ready for complete review yet and is an
+RFC, create a merge request and add the "WIP:" prefix in the title.
+
+To propose changes to existing protocols, create a GitLab merge request.
 
 If the changes are backward incompatible changes to an unstable protocol,
 see <<Unstable protocol changes>>.
@@ -63,9 +64,14 @@ For generic protocols not limited to certain configurations (such as
 specific desktop environment or operating system) the +wp_+ prefix
 should be used on all interfaces in the protocol.
 
+For protocols allowing clients to configure how their windows are
+managed, the +xdg_+ prefix should be used.
+
 For operating system specific protocols, the interfaces should be
 prefixed with both +wp_+ and the operating system, for example
 +wp_linux_+, or +wp_freebsd_+, etc.
+
+For more information about namespaces, see GOVERNANCE section 2.1.
 
 Unstable naming convention
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,6 +140,9 @@ The procedure of doing this is the following:
   . Reset all of the interface version attributes to +1+.
   . Update the +README+ file in the unstable directory and create a new
     +README+ file in the new directory.
+
+There are other requirements for declaring a protocol stable, see
+GOVERNANCE section 2.3.
 
 Releases
 ~~~~~~~~
