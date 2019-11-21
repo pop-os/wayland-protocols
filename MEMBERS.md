@@ -1,4 +1,4 @@
-                           wayland-protocols members
+# wayland-protocols members
 
 - EFL/Enlightenment: Mike Blumenkrantz <michael.blumenkrantz@gmail.com>
 - GTK/Mutter: Jonas Ådahl <jadahl@gmail.com>,
