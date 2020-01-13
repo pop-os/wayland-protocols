@@ -29,7 +29,7 @@
     DEALINGS IN THE SOFTWARE.
   </copyright>
 
-  <interface name="xdg_wm_base" version="2">
+  <interface name="xdg_wm_base" version="3">
     <description summary="create desktop-style surfaces">
       The xdg_wm_base interface is exposed as a global object enabling clients
       to turn their wl_surfaces into windows in a desktop environment. It
@@ -115,7 +115,7 @@
     </event>
   </interface>
 
-  <interface name="xdg_positioner" version="2">
+  <interface name="xdg_positioner" version="3">
     <description summary="child surface positioner">
       The xdg_positioner provides a collection of rules for the placement of a
       child surface relative to a parent surface. Rules can be defined to ensure
@@ -357,9 +357,22 @@
       <arg name="x" type="int" summary="surface position x offset"/>
       <arg name="y" type="int" summary="surface position y offset"/>
     </request>
+
+    <!-- Version 3 additions -->
+
+    <request name="set_reactive" since="3">
+      <description summary="continuously reconstrain the surface">
+	When set reactive, the surface is reconstrained if the conditions used
+	for constraining changed, e.g. the parent window moved.
+
+	If the conditions changed and the popup was reconstrained, an
+	xdg_popup.configure event is sent with updated geometry, followed by an
+	xdg_surface.configure event.
+      </description>
+    </request>
   </interface>
 
-  <interface name="xdg_surface" version="2">
+  <interface name="xdg_surface" version="3">
     <description summary="desktop user interface surface base interface">
       An interface that may be implemented by a wl_surface, for
       implementations that provide a desktop-style user interface.
@@ -526,9 +539,10 @@
       </description>
       <arg name="serial" type="uint" summary="serial of the configure event"/>
     </event>
+
   </interface>
 
-  <interface name="xdg_toplevel" version="2">
+  <interface name="xdg_toplevel" version="3">
     <description summary="toplevel surface">
       This interface defines an xdg_surface role which allows a surface to,
       among other things, set window-like properties such as maximize,
@@ -1019,7 +1033,7 @@
     </event>
   </interface>
 
-  <interface name="xdg_popup" version="2">
+  <interface name="xdg_popup" version="3">
     <description summary="short-lived, popup surfaces for menus">
       A popup surface is a short-lived, temporary surface. It can be used to
       implement for example menus, popovers, tooltips and other similar user
@@ -1120,6 +1134,11 @@
 	The x and y arguments represent the position the popup was placed at
 	given the xdg_positioner rule, relative to the upper left corner of the
 	window geometry of the parent surface.
+
+	For version 2 or older, the configure event for an xdg_popup is only
+	ever sent once for the initial configuration. Starting with version 3,
+	it may be sent again if the popup is setup with an xdg_positioner with
+	set_reactive requested.
       </description>
       <arg name="x" type="int"
 	   summary="x position relative to parent surface window geometry"/>
