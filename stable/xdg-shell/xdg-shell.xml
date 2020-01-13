@@ -370,6 +370,33 @@
 	xdg_surface.configure event.
       </description>
     </request>
+
+    <request name="set_parent_size" since="3">
+      <description summary="">
+	Set the parent window geometry the compositor should use when
+	positioning the popup. The compositor may use this information to
+	determine the future state the popup should be constrained using. If
+	this doesn't match the dimension of the parent the popup is eventually
+	positioned against, the behavior is undefined.
+
+	The arguments are given in the surface-local coordinate space.
+      </description>
+      <arg name="parent_width" type="int"
+	   summary="future window geometry width of parent"/>
+      <arg name="parent_height" type="int"
+	   summary="future window geometry height of parent"/>
+    </request>
+
+    <request name="set_parent_configure" since="3">
+      <description summary="set parent configure this is a response to">
+	Set the serial of a xdg_surface.configure event this positioner will be
+	used in response to. The compositor may use this information together
+	with set_parent_size to determine what future state the popup should be
+	constrained using.
+      </description>
+      <arg name="serial" type="uint"
+	   summary="serial of parent configure event"/>
+    </request>
   </interface>
 
   <interface name="xdg_surface" version="3">
@@ -1138,7 +1165,7 @@
 	For version 2 or older, the configure event for an xdg_popup is only
 	ever sent once for the initial configuration. Starting with version 3,
 	it may be sent again if the popup is setup with an xdg_positioner with
-	set_reactive requested.
+	set_reactive requested, or in response to xdg_popup.reposition requests.
       </description>
       <arg name="x" type="int"
 	   summary="x position relative to parent surface window geometry"/>
@@ -1154,6 +1181,59 @@
 	compositor. The client should destroy the xdg_popup object at this
 	point.
       </description>
+    </event>
+
+    <!-- Version 3 additions -->
+
+    <request name="reposition" since="3">
+      <description summary="recalculate the popup's location">
+	Reposition an already-mapped popup. The popup will be placed given the
+	details in the passed xdg_positioner object, and a
+	xdg_popup.repositioned followed by xdg_popup.configure and
+	xdg_surface.configure will be emitted in response. Any parameters set
+	by the previous positioner will be discarded.
+
+	The passed token will be sent in the corresponding
+	xdg_popup.repositioned event. The new popup position will not take
+	effect until the corresponding configure event is acknowledged by the
+	client. See xdg_popup.repositioned for details. The token itself is
+	opaque, and has no other special meaning.
+
+	If multiple reposition requests are sent, the compositor may skip all
+	but the last one.
+
+	If the popup is repositioned in response to a configure event for its
+	parent, the client should send an xdg_positioner.set_parent_configure
+	and possibly a xdg_positioner.set_parent_size request to allow the
+	compositor to properly constrain the popup.
+
+	If the popup is repositioned together with a parent that is being
+	resized, but not in response to a configure event, the client should
+	send a xdg_positioner.set_parent_size request.
+      </description>
+      <arg name="positioner" type="object" interface="xdg_positioner"/>
+      <arg name="token" type="uint" summary="reposition request token"/>
+    </request>
+
+    <event name="repositioned" since="3">
+      <description summary="signal the completion of a repositioned request">
+	The repositioned event is sent as part of a popup configuration
+	sequence, together with xdg_popup.configure and lastly
+	xdg_surface.configure to notify the completion of a reposition request.
+
+	The repositioned event is to notify about the completion of a
+	xdg_popup.reposition request. The token argument is the token passed
+	in the xdg_popup.reposition request.
+
+	Immediately after this event is emitted, xdg_popup.configure and
+	xdg_surface.configure will be sent with the updated size and position,
+	as well as a new configure serial.
+
+	The client should optionally update the content of the popup, but must
+	acknowledge the new popup configuration for the new position to take
+	effect. See xdg_surface.ack_configure for details.
+      </description>
+      <arg name="token" type="uint" summary="reposition request token"/>
     </event>
 
   </interface>
