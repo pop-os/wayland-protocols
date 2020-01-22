@@ -710,7 +710,7 @@
       </description>
       <arg name="seat" type="object" interface="wl_seat" summary="the wl_seat of the user event"/>
       <arg name="serial" type="uint" summary="the serial of the user event"/>
-      <arg name="edges" type="uint" summary="which edge or corner is being dragged"/>
+      <arg name="edges" type="uint" enum="resize_edge" summary="which edge or corner is being dragged"/>
     </request>
 
     <enum name="state">
