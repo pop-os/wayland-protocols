@@ -7,7 +7,7 @@
   David Edmundson <david@davidedmundson.co.uk>
 - Mir: Christopher James Halse Rogers <raof@ubuntu.com>,
   Alan Griffiths <alan.griffiths@canonical.com>
-- Qt: Johan Helsing <johan.helsing@qt.io>
+- Qt: Eskil Abrahamsen Blomfeldt <eskil.abrahamsen-blomfeldt@qt.io>
 - Weston: Pekka Paalanen <pekka.paalanen@collabora.com>,
   Daniel Stone <daniel@fooishbar.org>
 - wlroots/Sway: Drew DeVault <sir@cmpwn.com>, Simon Ser <contact@emersion.fr>
