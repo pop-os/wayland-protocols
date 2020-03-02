@@ -1,3 +1,10 @@
+wayland-protocols (1.20-1) unstable; urgency=medium
+
+  * New upstream release.
+  * d/s/local-options: ignore editorconfig and gitlab-ci configuration files.
+
+ -- Héctor Orón Martínez <zumbi@debian.org>  Mon, 02 Mar 2020 10:38:22 +0100
+
 wayland-protocols (1.18-1) unstable; urgency=medium
 
   * New upstream release.
