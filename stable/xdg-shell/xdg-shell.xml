@@ -426,6 +426,11 @@
       manipulate a buffer prior to the first xdg_surface.configure call must
       also be treated as errors.
 
+      After creating a role-specific object and setting it up, the client must
+      perform an initial commit without any buffer attached. The compositor
+      will reply with an xdg_surface.configure event. The client must
+      acknowledge it and is then allowed to attach a buffer to map the surface.
+
       Mapping an xdg_surface-based role surface is defined as making it
       possible for the surface to be shown by the compositor. Note that
       a mapped surface is not guaranteed to be visible once it is mapped.
