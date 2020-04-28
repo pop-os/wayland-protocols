@@ -148,3 +148,40 @@ There are other requirements for declaring a protocol stable, see
 
 Each release of wayland-protocols finalizes the version of the protocols
 to their state they had at that time.
+
+## Gitlab conventions
+
+### Triaging merge requests
+
+New merge requests should be triaged. Doing so requires the one doing the
+triage to add a set of initial labels:
+
+~"New Protocol" - For a new protocol being added. If it's an amendment to
+an existing protocol, apply the label of the corresponding protocol
+instead. If none exist, create it.
+
+~"Needs acks" - If the protocol needs one or more acknowledgements.
+
+~"Needs implementations" - If there are not enough implementations of the
+protocol.
+
+~"Needs review" - If the protocol is in need of review.
+
+~"In 30 day discussion period" - If the protocol needs a 30 day discussion
+period.
+
+For the meaning and requirement of acknowledgments and available
+implementations, see the GOVERNANCE.md document.
+
+### Managing merge requests
+
+When merge requests get their needed feedback and items, remove the
+corresponding label that marks it as needing something. For example, if a
+merge request receives all the required acknowledgments, remove the ~"Needs
+acks" label, or if 30 days passed since opening, remove any ~"In 30 days
+discussion period" label.
+
+### Nacking a merge request
+
+If the inclusion of a merge request is denied due to one or more Nacks, add
+the ~Nacked label.
