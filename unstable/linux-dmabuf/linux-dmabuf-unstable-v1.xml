@@ -55,6 +55,12 @@
         at any time use those fds to import the dmabuf into any kernel
         sub-system that might accept it.
 
+      However, when the underlying graphics stack fails to deliver the
+      promise, because of e.g. a device hot-unplug which raises internal
+      errors, after the wl_buffer has been successfully created the
+      compositor must not raise protocol errors to the client when dmabuf
+      import later fails.
+
       To create a wl_buffer from one or more dmabufs, a client creates a
       zwp_linux_dmabuf_params_v1 object with a zwp_linux_dmabuf_v1.create_params
       request. All planes required by the intended format are added with
