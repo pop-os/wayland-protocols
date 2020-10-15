@@ -37,10 +37,22 @@ unstable_protocols = {
 	'xwayland-keyboard-grab': ['v1'],
 }
 
+staging_protocols = {
+	'xdg-activation': ['v1'],
+}
+
 protocol_files = []
 
 foreach name : stable_protocols
 	protocol_files += ['stable/@0@/@0@.xml'.format(name)]
+endforeach
+
+foreach name : staging_protocols.keys()
+	foreach version : staging_protocols.get(name)
+		protocol_files += [
+			'staging/@0@/@0@-@1@.xml'.format(name, version)
+		]
+	endforeach
 endforeach
 
 foreach name : unstable_protocols.keys()
