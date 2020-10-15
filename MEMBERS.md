@@ -3,7 +3,7 @@
 - EFL/Enlightenment: Mike Blumenkrantz <michael.blumenkrantz@gmail.com>
 - GTK/Mutter: Jonas Ådahl <jadahl@gmail.com>,
   Carlos Garnacho <carlosg@gnome.org>
-- KWin: Roman Gilg <subdiff@gmail.com>,
+- KWin: Eike Hein <hein@kde.org>,
   David Edmundson <david@davidedmundson.co.uk>
 - Mir: Christopher James Halse Rogers <raof@ubuntu.com>,
   Alan Griffiths <alan.griffiths@canonical.com>
