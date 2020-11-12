@@ -532,11 +532,18 @@
 	The arguments are given in the surface-local coordinate space of
 	the wl_surface associated with this xdg_surface.
 
-	The width and height must be greater than zero. Setting an invalid size
-	will raise an invalid_size error. When applied, the effective window
-	geometry will be the set window geometry clamped to the bounding
-	rectangle of the combined geometry of the surface of the xdg_surface and
-	the associated subsurfaces.
+	When applied, the effective window geometry will be the set window
+	geometry clamped to the bounding rectangle of the combined
+	geometry of the surface of the xdg_surface and the associated
+	subsurfaces.
+
+	The effective geometry will not be recalculated unless a new call to
+	set_window_geometry is done and the new pending surface state is
+	subsequently applied.
+
+	The width and height of the effective window geometry must be
+	greater than zero. Setting an invalid size will raise an
+	invalid_size error.
       </description>
       <arg name="x" type="int"/>
       <arg name="y" type="int"/>
