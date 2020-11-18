@@ -10,29 +10,69 @@ A protocol in wayland-protocols consists of a directory containing a set
 of XML files containing the protocol specification, and a README file
 containing detailed state and a list of maintainers.
 
+## Protocol phases
+
+Protocols in general has three phases: the development phase, the testing
+phase, and the stable phase.
+
+In the development phase, a protocol is not officially part of
+wayland-protocols, but is actively being developed, for example by
+iterating over it in a
+[merge
+request](https://gitlab.freedesktop.org/wayland/wayland-protocols/merge_requests),
+or planning it in an
+[issue](https://gitlab.freedesktop.org/wayland/wayland-protocols/issues).
+
+During this phase, patches for clients and compositors are written as a test
+vehicle. Such patches must not be merged in clients and compositors, because
+the protocol can still change.
+
+When a protocol has reached a stage where it is ready for wider adoption,
+and after the [GOVERNANCE section
+2.3](GOVERNANCE.md#2.3-introducing-new-protocols) requirements have been
+met, it enters the "testing" phase. At this point, the protocol is added
+to `staging/` directory of wayland-protocols and made part of a release.
+What this means is that implementation is encouraged in clients and
+compositors where the functionality it specifies is wanted.
+
+Extensions in staging cannot have backward incompatible changes, in that
+sense they are equal to stable extensions. However, they may be completely
+replaced with a new major version, or a different protocol extension all
+together, if design flaws are found in the testing phase.
+
+After a staging protocol has been sufficiently tested in the wild and
+proven adequate, its maintainers and the community at large may declare it
+"stable", meaning it is unexpected to become superseded by a new major
+version.
+
+## Deprecation
+
+A protocol may be deprecated, if it has been replaced by some other
+protocol, or declared undesirable for some other reason. No more changes
+will be made to a deprecated protocol.
+
+## Legacy protocol phases
+
+An "unstable" protocol refers to a protocol categorization policy
+previously used by wayland-protocols, where protocols initially
+placed in the `unstable/` directory had certain naming conventions were
+applied, requiring a backward incompatible change to be declared "stable".
+
+During this phase, protocol extension interface names were in addition to
+the major version postfix also prefixed with `z` to distinguish from
+stable protocols.
+
 ## Protocol directory tree structure
 
-Protocols may be "stable", "unstable" or "deprecated", and the interface
-and protocol names as well as place in the directory tree will reflect
-this.
+Depending on which stage a protocol is in, the protocol is placed within
+the toplevel directory containing the protocols with the same stage.
+Stable protocols are placed in the `stable/` directory, staging protocols
+are placed in the `staging/` directory, and deprecated protocols are
+placed in the `deprecated/` directory.
 
-A stable protocol is a protocol which has been declared stable by
-the maintainers. Changes to such protocols will always be backward
-compatible.
-
-An unstable protocol is a protocol currently under development and this
-will be reflected in the protocol and interface names. See [Unstable
-naming convention](#unstable-naming-convention).
-
-A deprecated protocol is a protocol that has either been replaced by some
-other protocol, or declared undesirable for some other reason. No more
-changes will be made to a deprecated protocol.
-
-Depending on which of the above states the protocol is in, the protocol
-is placed within the toplevel directory containing the protocols with the
-same state. Stable protocols are placed in the `stable/` directory,
-unstable protocols are placed in the `unstable/` directory, and
-deprecated protocols are placed in the `deprecated/` directory.
+Unstable protocols (see [Legacy protocol phases](#legacy-protocol-phases))
+can be found in the `unstable/` directory, but new ones should never be
+placed here.
 
 ## Protocol development procedure
 
@@ -48,9 +88,6 @@ tracker. If the protocol isn't ready for complete review yet and is an
 RFC, create a merge request and add the "WIP:" prefix in the title.
 
 To propose changes to existing protocols, create a GitLab merge request.
-
-If the changes are backward incompatible changes to an unstable protocol,
-see [Unstable protocol changes](#unstable-protocol-changes).
 
 ## Interface naming convention
 
@@ -73,38 +110,42 @@ prefixed with both `wp_` and the operating system, for example
 For more information about namespaces, see [GOVERNANCE section 2.1
 ](GOVERNANCE.md#21-protocol-namespaces).
 
-## Unstable naming convention
+Each new protocol XML file must include a major version postfix, starting
+with `-v1`. The purpose of this postfix is to make it possible to
+distinguish between backward incompatible major versions of the same
+protocol.
 
-Unstable protocols have a special naming convention in order to make it
-possible to make discoverable backward incompatible changes.
+The interfaces in the protocol XML file should as well have the same
+major version postfix in their names.
 
-An unstable protocol has at least two versions: the major version, which
-represents backward incompatible changes, and the minor version, which
-represents backward compatible changes to the interfaces in the protocol.
+For example, the protocol `foo-bar` may have a XML file
+`foo-bar/foo-bar-v1.xml`, consisting of the interface `wp_foo_bar_v1`,
+corresponding to the major version 1, as well as the newer version
+`foo-bar/foo-bar-v2.xml` consisting of the interface `wp_foo_bar_v2`,
+corresponding to the major version 2.
 
-The major version is part of the XML file name, the protocol name in the
-XML, and interface names in the protocol.
+## Include a disclaimer
 
-Minor versions are the version attributes of the interfaces in the XML.
-There may be more than one minor version per protocol, if there are more
-than one global.
+Include the following disclaimer:
 
-The XML file and protocol name also has the word 'unstable' in them, and
-all of the interfaces in the protocol are prefixed with `z` and
-suffixed with the major version number.
+```
+Warning! The protocol described in this file is currently in the testing
+phase. Backward compatible changes may be added together with the
+corresponding interface version bump. Backward incompatible changes can
+only be done by creating a new major version of the extension.
+```
 
-For example, an unstable protocol called `foo-bar` with major version 2
-containing the two interfaces `wp_foo` and `wp_bar` both minor version 1
-will be placed in the directory `unstable/foo-bar/` consisting of one file
-called `README` and one called `foo-bar-unstable-v2.xml`. The XML file
-will consist of two interfaces called `zwp_foo_v2` and `zwp_bar_v2` with
-the `version` attribute set to 1.
+## Backward compatible protocol changes
 
-## Unstable protocol changes
+A protocol may receive backward compatible additions and changes. This
+is to be done in the general Wayland way, using `version` and `since` XML
+element attributes.
 
-During the development of a new protocol it is possible that backward
-incompatible changes are needed. Such a change needs to be represented
-in the major and minor versions of the protocol.
+## Backward incompatible protocol changes
+
+While not preferred, a protocol may at any stage, especially during the
+testing phase, when it is located in the `staging/` directory, see
+backward incompatible changes.
 
 Assuming a backward incompatible change is needed, the procedure for how to
 do so is the following:
@@ -113,33 +154,38 @@ do so is the following:
 - Increase the major version number in the protocol XML by 1.
 - Increase the major version number in all of the interfaces in the
   XML by 1.
-- Reset the minor version number (interface version attribute) of all
+- Reset the interface version number (interface version attribute) of all
   the interfaces to 1.
-
-Backward compatible changes within a major unstable version can be done
-in the regular way as done in core Wayland or in stable protocols.
+- Remove all of the `since` attributes.
 
 ## Declaring a protocol stable
 
-Once it is decided that a protocol should be declared stable, meaning no
-more backward incompatible changes will ever be allowed, one last
-breakage is needed.
+Once it has been concluded that a protocol been proven adequate in
+production, and that it is deemed unlikely to receive any backward
+incompatible changes, it may be declared stable.
 
 The procedure of doing this is the following:
 
 - Create a new directory in the `stable/` toplevel directory with the
-  same name as the protocol directory in the `unstable/` directory.
+  same name as the protocol directory in the `staging/` directory.
 - Copy the final version of the XML that is the version that was
   decided to be declared stable into the new directory. The target name
   should be the same name as the protocol directory but with the `.xml`
   suffix.
-- Rename the name of the protocol in the XML by removing the
-  `unstable` part and the major version number.
-- Remove the `z` prefix and the major version number suffix from all
-  of the interfaces in the protocol.
-- Reset all of the interface version attributes to 1.
-- Update the `README` file in the unstable directory and create a new
+- Remove the disclaimer about the protocol being in the testing phase.
+- Update the `README` file in the staging directory and create a new
   `README` file in the new directory.
+- Replace the disclaimer in the protocol files left in the staging/
+  directory with the following:
+
+```
+Disclaimer: This protocol extension has been marked stable. This copy is
+no longer used and only retained for backwards compatibility. The
+canonical version can be found in the stable/ directory.
+```
+
+Note that the major version of the stable protocol extension, as well as
+all the interface versions and names, must remain unchanged.
 
 There are other requirements for declaring a protocol stable, see
 [GOVERNANCE section 2.3](GOVERNANCE.md#23-introducing-new-protocols).
