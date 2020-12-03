@@ -35,6 +35,10 @@ staging_protocols =								\
 	staging/xdg-activation/xdg-activation-v1.xml				\
 	$(NULL)
 
+misc_documentation =								\
+	staging/xdg-activation/x11-interoperation.rst				\
+	$(NULL)
+
 nobase_dist_pkgdata_DATA =							\
 	$(unstable_protocols)							\
 	$(stable_protocols)							\
@@ -45,6 +49,7 @@ dist_noinst_DATA =								\
 	$(sort $(foreach p,$(unstable_protocols),$(dir $p)README))		\
 	$(sort $(foreach p,$(stable_protocols),$(dir $p)README))		\
 	$(sort $(foreach p,$(staging_protocols),$(dir $p)README))		\
+	$(misc_documentation)							\
 	README.md								\
 	GOVERNANCE.md								\
 	MEMBERS.md								\
