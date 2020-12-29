@@ -46,6 +46,7 @@ staging_protocols = {
 	'security-context': ['v1'],
 	'single-pixel-buffer': ['v1'],
 	'tearing-control': ['v1'],
+	'ext-transient-seat': ['v1'],
 	'xdg-activation': ['v1'],
 	'xwayland-shell': ['v1'],
 }
