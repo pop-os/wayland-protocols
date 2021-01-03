@@ -225,7 +225,7 @@
            summary="low 32 bits of layout modifier"/>
     </request>
 
-    <enum name="flags">
+    <enum name="flags" bitfield="true">
       <entry name="y_invert" value="1" summary="contents are y-inverted"/>
       <entry name="interlaced" value="2" summary="content is interlaced"/>
       <entry name="bottom_first" value="4" summary="bottom field first"/>
@@ -296,7 +296,7 @@
       <arg name="width" type="int" summary="base plane width in pixels"/>
       <arg name="height" type="int" summary="base plane height in pixels"/>
       <arg name="format" type="uint" summary="DRM_FORMAT code"/>
-      <arg name="flags" type="uint" summary="see enum flags"/>
+      <arg name="flags" type="uint" enum="flags" summary="see enum flags"/>
     </request>
 
     <event name="created">
@@ -354,7 +354,7 @@
       <arg name="width" type="int" summary="base plane width in pixels"/>
       <arg name="height" type="int" summary="base plane height in pixels"/>
       <arg name="format" type="uint" summary="DRM_FORMAT code"/>
-      <arg name="flags" type="uint" summary="see enum flags"/>
+      <arg name="flags" type="uint" enum="flags" summary="see enum flags"/>
     </request>
 
   </interface>
