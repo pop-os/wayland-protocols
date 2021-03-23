@@ -143,6 +143,9 @@
         is as if no explicit modifier is specified. The effective modifier
         will be derived from the dmabuf.
 
+        A compositor that sends valid modifiers and DRM_FORMAT_MOD_INVALID for
+        a given format supports both explicit modifiers and implicit modifiers.
+
         For the definition of the format and modifier codes, see the
         zwp_linux_buffer_params_v1::create and zwp_linux_buffer_params_v1::add
         requests.
