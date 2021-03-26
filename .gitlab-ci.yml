@@ -23,7 +23,18 @@ container_build:
   variables:
     GIT_STRATEGY: none
 
-test:
+test-meson:
+  stage: test
+  extends:
+    - .debian
+    - .fdo.distribution-image@debian
+  script:
+    - meson build
+    - ninja -C build
+    - meson test -C build
+    - ninja -C build install
+
+test-autotools:
   stage: test
   extends:
     - .debian
