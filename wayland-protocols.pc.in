@@ -1,5 +1,5 @@
 prefix=@prefix@
-datarootdir=${prefix}/@datadir@
+datarootdir=@datarootdir@
 pkgdatadir=${pc_sysrootdir}${datarootdir}/@PACKAGE@
 
 Name: Wayland Protocols

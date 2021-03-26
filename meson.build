@@ -75,7 +75,7 @@ wayland_protocols_srcdir = meson.current_source_dir()
 
 pkgconfig_configuration = configuration_data()
 pkgconfig_configuration.set('prefix', get_option('prefix'))
-pkgconfig_configuration.set('datadir', get_option('datadir'))
+pkgconfig_configuration.set('datarootdir', '${prefix}/@0@'.format(get_option('datadir')))
 pkgconfig_configuration.set('abs_top_srcdir', wayland_protocols_srcdir)
 pkgconfig_configuration.set('PACKAGE', 'wayland-protocols')
 pkgconfig_configuration.set('WAYLAND_PROTOCOLS_VERSION', wayland_protocols_version)
