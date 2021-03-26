@@ -1,27 +1,33 @@
-variables:
-  DEBIAN_TAG: 2019-11-21.0
-  DEBIAN_VERSION: stable
-  TEST_IMAGE: "$CI_REGISTRY_IMAGE/debian/$DEBIAN_VERSION:$DEBIAN_TAG"
 
 include:
-  - project: 'wayland/ci-templates'
-    ref: f69acac60d5dde0410124fd5674764600821b7a6
+  - project: 'freedesktop/ci-templates'
+    ref: 59de540b620c45739871d1a073d76d5521989d11
     file: '/templates/debian.yml'
 
 stages:
   - containers-build
   - test
 
+.debian:
+  variables:
+    FDO_UPSTREAM_REPO: wayland/wayland-protocols
+    FDO_DISTRIBUTION_VERSION: bullseye
+    FDO_DISTRIBUTION_PACKAGES: 'build-essential automake autoconf libtool pkg-config libwayland-dev meson'
+    FDO_DISTRIBUTION_TAG: '2021-03-24.0'
+
 container_build:
-  extends: .debian@container-ifnot-exists
+  extends:
+    - .debian
+    - .fdo.container-build@debian
   stage: containers-build
   variables:
-    GIT_STRATEGY: none # no need to pull the whole tree for rebuilding the image
-    DEBIAN_DEBS: 'build-essential automake autoconf libtool pkg-config libwayland-dev'
+    GIT_STRATEGY: none
 
 test:
   stage: test
-  image: $TEST_IMAGE
+  extends:
+    - .debian
+    - .fdo.distribution-image@debian
   script:
     - ./autogen.sh
     - make check
