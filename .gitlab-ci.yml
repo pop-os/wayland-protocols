@@ -13,9 +13,11 @@ stages:
   - containers-build
   - test
 
+variables:
+  FDO_UPSTREAM_REPO: wayland/wayland-protocols
+
 .debian:
   variables:
-    FDO_UPSTREAM_REPO: wayland/wayland-protocols
     FDO_DISTRIBUTION_VERSION: bullseye
     FDO_DISTRIBUTION_PACKAGES: 'build-essential automake autoconf libtool pkg-config libwayland-dev meson'
     FDO_DISTRIBUTION_TAG: '2021-03-24.0'
