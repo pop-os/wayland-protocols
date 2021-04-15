@@ -20,7 +20,7 @@ endforeach
 
 # Check buildability
 
-add_languages('c', 'cpp')
+add_languages('c', 'cpp', native: true)
 replace = find_program('replace.py')
 
 foreach protocol_file : protocol_files
@@ -109,6 +109,7 @@ foreach protocol_file : protocol_files
 			'-Wall',
 			'-Werror' ],
 		install: false,
+		native: true,
 	)
 	test(test_name, pedantic_test_executable)
 
@@ -136,6 +137,7 @@ foreach protocol_file : protocol_files
 				'-Werror',
 			],
 			install: false,
+			native: true,
 		)
 		test(test_name, cxx_test_executable)
 	endif
