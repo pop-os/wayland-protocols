@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.20',
+	version: '1.21',
 	meson_version: '>= 0.53.0',
 	license: 'MIT/Expat',
 )
