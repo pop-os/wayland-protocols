@@ -53,6 +53,13 @@ dist_noinst_DATA =								\
 	README.md								\
 	GOVERNANCE.md								\
 	MEMBERS.md								\
+	meson.build								\
+	meson_options.txt							\
+	tests/meson.build							\
+	tests/build-cxx.cc.in							\
+	tests/build-pedantic.c.in						\
+	tests/replace.py							\
+	tests/scan.sh								\
 	$(NULL)
 
 noarch_pkgconfig_DATA = wayland-protocols.pc
