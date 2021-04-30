@@ -1,13 +1,15 @@
 # wayland-protocols members
 
-- EFL/Enlightenment: Mike Blumenkrantz <michael.blumenkrantz@gmail.com>
-- GTK/Mutter: Jonas Ådahl <jadahl@gmail.com>,
-  Carlos Garnacho <carlosg@gnome.org>
-- KWin: Eike Hein <hein@kde.org>,
-  David Edmundson <david@davidedmundson.co.uk>
-- Mir: Christopher James Halse Rogers <raof@ubuntu.com>,
+- EFL/Enlightenment: Mike Blumenkrantz <michael.blumenkrantz@gmail.com> (@zmike)
+- GTK/Mutter: Jonas Ådahl <jadahl@gmail.com> (@jadahl),
+  Carlos Garnacho <carlosg@gnome.org> (@carlosg)
+- KWin: Eike Hein <hein@kde.org> (@hein),
+  David Edmundson <david@davidedmundson.co.uk> (@davidedmundson)
+- Mir: Christopher James Halse Rogers <raof@ubuntu.com> (@RAOF),
   Alan Griffiths <alan.griffiths@canonical.com>
 - Qt: Eskil Abrahamsen Blomfeldt <eskil.abrahamsen-blomfeldt@qt.io>
-- Weston: Pekka Paalanen <pekka.paalanen@collabora.com>,
-  Daniel Stone <daniel@fooishbar.org>
-- wlroots/Sway: Drew DeVault <sir@cmpwn.com>, Simon Ser <contact@emersion.fr>
+  (@eskilblomfeldt)
+- Weston: Pekka Paalanen <pekka.paalanen@collabora.com> (@pq),
+  Daniel Stone <daniel@fooishbar.org> (@daniels)
+- wlroots/Sway: Drew DeVault <sir@cmpwn.com> (@ddevault),
+  Simon Ser <contact@emersion.fr> (@emersion)
