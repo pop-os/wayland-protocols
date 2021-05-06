@@ -39,6 +39,7 @@ unstable_protocols = {
 
 staging_protocols = {
 	'xdg-activation': ['v1'],
+	'drm-lease': ['v1'],
 }
 
 protocol_files = []
