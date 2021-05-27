@@ -89,7 +89,7 @@
         token and might decide not to follow through with the activation if it's
         considered unwanted.
 
-        Compositors can ignore unknown presentation tokens when an invalid
+        Compositors can ignore unknown activation tokens when an invalid
         token is passed.
       </description>
       <arg name="token" type="string" summary="the activation token of the initiating client"/>
@@ -170,7 +170,7 @@
         Applications implementing the D-Bus interface org.freedesktop.Application
         should get their token under XDG_ACTIVATION_TOKEN on their platform_data.
 
-        Presentation tokens may be transferred across clients through means not
+        Activation tokens may be transferred across clients through means not
         described in this protocol.
       </description>
       <arg name="token" type="string" summary="the exported activation token"/>
