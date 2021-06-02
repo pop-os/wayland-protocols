@@ -120,6 +120,14 @@
         Provides information about the seat and serial event that requested the
         token.
 
+        The serial can come from an input or focus event. For instance, if a
+        click triggers the launch of a third-party client, the launcher client
+        should send a set_serial request with the serial and seat from the
+        wl_pointer.button event.
+
+        Some compositors might refuse to activate toplevels when the token
+        doesn't have a valid and recent enough event serial.
+
         Must be sent before commit. This information is optional.
       </description>
       <arg name="serial" type="uint"
@@ -140,11 +148,14 @@
     </request>
 
     <request name="set_surface">
-      <description summary="specifies the application being activated">
-        The requesting client can specify a surface to associate the token
-        being created with it.
+      <description summary="specifies the surface requesting activation">
+        This request sets the surface requesting the activation. Note, this is
+        different from the surface that will be activated.
 
-        Must be triggered before commit. This information is optional.
+        Some compositors might refuse to activate toplevels when the token
+        doesn't have a requesting surface.
+
+        Must be sent before commit. This information is optional.
       </description>
       <arg name="surface" type="object" interface="wl_surface"
 	   summary="the requesting surface"/>
