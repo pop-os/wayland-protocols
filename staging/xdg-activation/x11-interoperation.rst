@@ -3,8 +3,8 @@ Interoperation with X11
 
 *This document is non-normative.*
 
-The former X11 startup-notification standard
-(https://cgit.freedesktop.org/startup-notification/tree/doc/startup-notification.txt)
+The former
+`X11 Startup notification protocol <https://cgit.freedesktop.org/startup-notification/tree/doc/startup-notification.txt>`_
 defines the use of the DESKTOP_STARTUP_ID environment variable to propagate
 startup sequences ("activation tokens" in this protocol) between launcher and
 launchee.
