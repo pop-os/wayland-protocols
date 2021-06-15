@@ -43,12 +43,11 @@ Scenario 2. X11 client spawns Wayland client
 4. X11 client spawns Wayland client, sets ``$DESKTOP_STARTUP_ID`` in its
    environment.
 5. Wayland client starts.
-6. Wayland client sets the activation token, as received from
-   ``$DESKTOP_STARTUP_ID``.
+6. Wayland client requests surface activation with the activation token,
+   as received from ``$DESKTOP_STARTUP_ID``.
 7. Compositor receives the request, matches ID with the common pool
 8. The startup feedback is finished.
-9. Wayland client requests surface activation.
-10. Compositor applies internal policies to allow/deny focus switch.
+9. Compositor applies internal policies to allow/deny focus switch.
 
 Caveats
 -------
