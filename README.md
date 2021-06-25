@@ -89,6 +89,12 @@ RFC, create a merge request and add the "WIP:" prefix in the title.
 
 To propose changes to existing protocols, create a GitLab merge request.
 
+Please include a `Signed-off-by` line at the end of the commit to certify
+that you wrote it or otherwise have the right to pass it on as an
+open-source patch. See the
+[Developer Certificate of Origin](https://developercertificate.org/) for
+a formal definition.
+
 ## Interface naming convention
 
 All protocols should avoid using generic namespaces or no namespaces in
