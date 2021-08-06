@@ -229,9 +229,9 @@ implementations, see the GOVERNANCE.md document.
 
 When merge requests get their needed feedback and items, remove the
 corresponding label that marks it as needing something. For example, if a
-merge request receives all the required acknowledgments, remove the ~"Needs
-acks" label, or if 30 days passed since opening, remove any ~"In 30 days
-discussion period" label.
+merge request receives all the required acknowledgments, remove the
+~"Needs acks" label, or if 30 days passed since opening, remove any
+~"In 30 day discussion period" label.
 
 ### Nacking a merge request
 
