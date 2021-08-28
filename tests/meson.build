@@ -130,6 +130,7 @@ foreach protocol_file : protocol_files
 				server_header,
 			],
 			link_args: [ '-Wl,--unresolved-symbols=ignore-all' ],
+			dependencies: libwayland,
 			cpp_args: [
 				'-Wall',
 				'-Werror',
