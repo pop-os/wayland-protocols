@@ -1,4 +1,5 @@
 prog_scan_sh = find_program('scan.sh')
+dep_scanner = dependency('wayland-scanner', native: true)
 prog_scanner = find_program(dep_scanner.get_pkgconfig_variable('wayland_scanner'))
 
 libwayland = [

@@ -8,8 +8,6 @@ wayland_protocols_version = meson.project_version()
 
 fs = import('fs')
 
-dep_scanner = dependency('wayland-scanner', native: true)
-
 stable_protocols = [
 	'presentation-time',
 	'viewporter',
