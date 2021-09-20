@@ -19,8 +19,8 @@ variables:
 .debian:
   variables:
     FDO_DISTRIBUTION_VERSION: bullseye
-    FDO_DISTRIBUTION_PACKAGES: 'build-essential automake autoconf libtool pkg-config libwayland-dev meson'
-    FDO_DISTRIBUTION_TAG: '2021-03-24.0'
+    FDO_DISTRIBUTION_PACKAGES: 'build-essential pkg-config libwayland-dev meson'
+    FDO_DISTRIBUTION_TAG: '2021-11-09.0'
 
 check-commit:
   extends:
@@ -52,12 +52,3 @@ test-meson:
     - ninja -C build
     - meson test -C build
     - ninja -C build install
-
-test-autotools:
-  stage: test
-  extends:
-    - .debian
-    - .fdo.distribution-image@debian
-  script:
-    - ./autogen.sh
-    - make check
