@@ -247,10 +247,8 @@
         compression, etc. driver-specific modifications to the base format
         defined by the DRM fourcc code.
 
-        Warning: It should be an error if the format/modifier pair was not
-        advertised by zwp_linux_dmabuf_feedback_v1. This is not enforced yet
-        because some implementations always accept DRM_FORMAT_MOD_INVALID. Also
-        version 2 of this protocol does not have the modifier event.
+        Starting from version 4, the invalid_format protocol error is sent if
+        the format + modifier pair was not advertised as supported.
 
         This request raises the PLANE_IDX error if plane_idx is too large.
         The error PLANE_SET is raised if attempting to set a plane that
