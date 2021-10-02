@@ -41,6 +41,7 @@ staging_protocols = {
 	'ext-session-lock': ['v1'],
 	'single-pixel-buffer': ['v1'],
 	'ext-idle-notify': ['v1'],
+	'content-type': ['v1'],
 }
 
 protocol_files = []
