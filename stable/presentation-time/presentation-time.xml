@@ -165,7 +165,7 @@
         <description summary="presentation was vsync'd">
           The presentation was synchronized to the "vertical retrace" by
           the display hardware such that tearing does not happen.
-          Relying on user space scheduling is not acceptable for this
+          Relying on software scheduling is not acceptable for this
           flag. If presentation is done by a copy to the active
           frontbuffer, then it must guarantee that tearing cannot
           happen.
@@ -175,7 +175,7 @@
         <description summary="hardware provided the presentation timestamp">
           The display hardware provided measurements that the hardware
           driver converted into a presentation timestamp. Sampling a
-          clock in user space is not acceptable for this flag.
+          clock in software is not acceptable for this flag.
         </description>
       </entry>
       <entry name="hw_completion" value="0x4">
