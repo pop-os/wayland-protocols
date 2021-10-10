@@ -1,6 +1,6 @@
 project('wayland-protocols',
-	version: '1.21',
-	meson_version: '>= 0.53.0',
+	version: '1.23',
+	meson_version: '>= 0.54.0',
 	license: 'MIT/Expat',
 )
 
@@ -39,6 +39,7 @@ unstable_protocols = {
 
 staging_protocols = {
 	'xdg-activation': ['v1'],
+	'drm-lease': ['v1'],
 }
 
 protocol_files = []
@@ -105,6 +106,14 @@ configure_file(
 	output: 'wayland-protocols-uninstalled.pc',
 	configuration: pkgconfig_configuration,
 )
+
+wayland_protocols = declare_dependency(
+	variables: {
+		'pkgdatadir': wayland_protocols_srcdir,
+	},
+)
+
+meson.override_dependency('wayland-protocols', wayland_protocols)
 
 if get_option('tests')
 	subdir('tests')

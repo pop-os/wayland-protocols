@@ -89,6 +89,12 @@ RFC, create a merge request and add the "WIP:" prefix in the title.
 
 To propose changes to existing protocols, create a GitLab merge request.
 
+Please include a `Signed-off-by` line at the end of the commit to certify
+that you wrote it or otherwise have the right to pass it on as an
+open-source patch. See the
+[Developer Certificate of Origin](https://developercertificate.org/) for
+a formal definition.
+
 ## Interface naming convention
 
 All protocols should avoid using generic namespaces or no namespaces in
@@ -223,9 +229,9 @@ implementations, see the GOVERNANCE.md document.
 
 When merge requests get their needed feedback and items, remove the
 corresponding label that marks it as needing something. For example, if a
-merge request receives all the required acknowledgments, remove the ~"Needs
-acks" label, or if 30 days passed since opening, remove any ~"In 30 days
-discussion period" label.
+merge request receives all the required acknowledgments, remove the
+~"Needs acks" label, or if 30 days passed since opening, remove any
+~"In 30 day discussion period" label.
 
 ### Nacking a merge request
 

@@ -11,16 +11,16 @@ foreach protocol_file : protocol_files
 	protocol_path = join_paths(wayland_protocols_srcdir, protocol_file)
 	test_name = 'scan-@0@'.format(protocol_file.underscorify())
 	test(test_name, prog_scan_sh,
-	     args: protocol_path,
-	     env: [
-		     'SCANNER=@0@'.format(prog_scanner.path()),
-	     ]
+		args: protocol_path,
+		env: [
+			'SCANNER=@0@'.format(prog_scanner.path()),
+		]
 	)
 endforeach
 
 # Check buildability
 
-add_languages('c', 'cpp')
+add_languages('c', 'cpp', native: true)
 replace = find_program('replace.py')
 
 foreach protocol_file : protocol_files
@@ -109,6 +109,7 @@ foreach protocol_file : protocol_files
 			'-Wall',
 			'-Werror' ],
 		install: false,
+		native: true,
 	)
 	test(test_name, pedantic_test_executable)
 
@@ -130,11 +131,13 @@ foreach protocol_file : protocol_files
 				server_header,
 			],
 			link_args: [ '-Wl,--unresolved-symbols=ignore-all' ],
+			dependencies: libwayland,
 			cpp_args: [
 				'-Wall',
 				'-Werror',
 			],
 			install: false,
+			native: true,
 		)
 		test(test_name, cxx_test_executable)
 	endif
