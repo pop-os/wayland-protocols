@@ -44,6 +44,7 @@ staging_protocols = {
 	'ext-foreign-toplevel-list': ['v1'],
 	'ext-idle-notify': ['v1'],
 	'ext-image-capture-source': ['v1'],
+	'ext-image-copy-capture': ['v1'],
 	'ext-session-lock': ['v1'],
 	'ext-transient-seat': ['v1'],
 	'fractional-scale': ['v1'],
