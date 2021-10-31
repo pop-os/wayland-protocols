@@ -605,6 +605,11 @@
       </description>
     </request>
 
+    <enum name="error">
+      <entry name="invalid_resize_edge" value="0" summary="provided value is
+        not a valid variant of the resize_edge enum"/>
+    </enum>
+
     <request name="set_parent">
       <description summary="set the parent of this surface">
 	Set the "parent" of this surface. This surface should be stacked
@@ -754,12 +759,13 @@
 	guarantee that the device focus will return when the resize is
 	completed.
 
-	The edges parameter specifies how the surface should be resized,
-	and is one of the values of the resize_edge enum. The compositor
-	may use this information to update the surface position for
-	example when dragging the top left corner. The compositor may also
-	use this information to adapt its behavior, e.g. choose an
-	appropriate cursor image.
+	The edges parameter specifies how the surface should be resized, and
+	is one of the values of the resize_edge enum. Values not matching
+	a variant of the enum will cause a protocol error. The compositor
+	may use this information to update the surface position for example
+	when dragging the top left corner. The compositor may also use
+	this information to adapt its behavior, e.g. choose an appropriate
+	cursor image.
       </description>
       <arg name="seat" type="object" interface="wl_seat" summary="the wl_seat of the user event"/>
       <arg name="serial" type="uint" summary="the serial of the user event"/>
