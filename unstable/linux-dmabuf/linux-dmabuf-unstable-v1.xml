@@ -82,6 +82,9 @@
           client. If the client uses a failed wl_buffer as an argument to any
           request, the behaviour is compositor implementation-defined.
 
+      For all DRM formats and unless specified in another protocol extension,
+      pre-multiplied alpha is used for pixel values.
+
       Warning! The protocol described in this file is experimental and
       backward incompatible changes may be made. Backward compatible changes
       may be added together with the corresponding interface version bump.
