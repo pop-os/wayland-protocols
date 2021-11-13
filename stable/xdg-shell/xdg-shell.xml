@@ -809,25 +809,25 @@
 	</description>
       </entry>
       <entry name="tiled_left" value="5" since="2">
-	<description summary="the surface is tiled">
+	<description summary="the surface’s left edge is tiled">
 	  The window is currently in a tiled layout and the left edge is
 	  considered to be adjacent to another part of the tiling grid.
 	</description>
       </entry>
       <entry name="tiled_right" value="6" since="2">
-	<description summary="the surface is tiled">
+	<description summary="the surface’s right edge is tiled">
 	  The window is currently in a tiled layout and the right edge is
 	  considered to be adjacent to another part of the tiling grid.
 	</description>
       </entry>
       <entry name="tiled_top" value="7" since="2">
-	<description summary="the surface is tiled">
+	<description summary="the surface’s top edge is tiled">
 	  The window is currently in a tiled layout and the top edge is
 	  considered to be adjacent to another part of the tiling grid.
 	</description>
       </entry>
       <entry name="tiled_bottom" value="8" since="2">
-	<description summary="the surface is tiled">
+	<description summary="the surface’s bottom edge is tiled">
 	  The window is currently in a tiled layout and the bottom edge is
 	  considered to be adjacent to another part of the tiling grid.
 	</description>
