@@ -687,7 +687,7 @@
 	application identifiers and how they relate to well-known D-Bus
 	names and .desktop files.
 
-	[0] http://standards.freedesktop.org/desktop-entry-spec/
+	[0] https://standards.freedesktop.org/desktop-entry-spec/
       </description>
       <arg name="app_id" type="string"/>
     </request>
