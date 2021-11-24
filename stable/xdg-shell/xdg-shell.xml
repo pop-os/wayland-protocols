@@ -446,7 +446,8 @@
 
       A newly-unmapped surface is considered to have met condition (1) out
       of the 3 required conditions for mapping a surface if its role surface
-      has not been destroyed.
+      has not been destroyed, i.e. the client must perform the initial commit
+      again before attaching a buffer.
     </description>
 
     <enum name="error">
