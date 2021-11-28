@@ -1,4 +1,5 @@
 prog_scan_sh = find_program('scan.sh')
+dep_scanner = dependency('wayland-scanner', native: true)
 prog_scanner = find_program(dep_scanner.get_pkgconfig_variable('wayland_scanner'))
 
 libwayland = [
@@ -20,8 +21,12 @@ endforeach
 
 # Check buildability
 
-add_languages('c', 'cpp', native: true)
+add_languages('c', 'cpp', native: false)
 replace = find_program('replace.py')
+
+extra_linker_flags = meson.get_compiler('c').get_supported_link_arguments([
+	'-Wl,--unresolved-symbols=ignore-all',
+])
 
 foreach protocol_file : protocol_files
 	xml_file = fs.name(protocol_file)
@@ -99,9 +104,7 @@ foreach protocol_file : protocol_files
 			server_header,
 			code
 		],
-		link_args: [
-			'-Wl,--unresolved-symbols=ignore-all',
-		],
+		link_args: extra_linker_flags,
 		dependencies: libwayland,
 		c_args: [
 			'-std=c99',
@@ -109,7 +112,6 @@ foreach protocol_file : protocol_files
 			'-Wall',
 			'-Werror' ],
 		install: false,
-		native: true,
 	)
 	test(test_name, pedantic_test_executable)
 
@@ -130,14 +132,13 @@ foreach protocol_file : protocol_files
 				client_header,
 				server_header,
 			],
-			link_args: [ '-Wl,--unresolved-symbols=ignore-all' ],
+			link_args: extra_linker_flags,
 			dependencies: libwayland,
 			cpp_args: [
 				'-Wall',
 				'-Werror',
 			],
 			install: false,
-			native: true,
 		)
 		test(test_name, cxx_test_executable)
 	endif

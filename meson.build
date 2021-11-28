@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.23',
+	version: '1.24',
 	meson_version: '>= 0.54.0',
 	license: 'MIT/Expat',
 )
@@ -7,8 +7,6 @@ project('wayland-protocols',
 wayland_protocols_version = meson.project_version()
 
 fs = import('fs')
-
-dep_scanner = dependency('wayland-scanner', native: true)
 
 stable_protocols = [
 	'presentation-time',
