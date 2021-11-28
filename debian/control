@@ -6,6 +6,7 @@ Uploaders: Héctor Orón Martínez <zumbi@debian.org>,
            Emilio Pozuelo Monfort <pochu@debian.org>
 Build-Depends:
  debhelper (>=10),
+ meson (>= 0.54.0),
  libwayland-dev,
  pkg-config
 Standards-Version: 4.5.0

@@ -1,3 +1,10 @@
+wayland-protocols (1.24-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+  * debian/control: build depends on meson >= 0.54.0.
+
+ -- Héctor Orón Martínez <zumbi@debian.org>  Sun, 28 Nov 2021 19:07:52 +0100
+
 wayland-protocols (1.23-1) unstable; urgency=medium
 
   * New upstream release.
