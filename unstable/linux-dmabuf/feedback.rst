@@ -180,7 +180,7 @@ A client can decode the values as follows:
 
 .. code-block:: c
 
-    struct dev_t dev;
+    dev_t dev;
     assert(dev_array->size == sizeof(dev));
     memcpy(&dev, dev_array->data, sizeof(dev));
 
