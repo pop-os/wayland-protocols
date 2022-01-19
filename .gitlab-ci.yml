@@ -52,3 +52,8 @@ test-meson:
     - ninja -C build
     - meson test -C build
     - ninja -C build install
+  artifacts:
+    name: wayland-protocols-$CI_COMMIT_SHA
+    when: always
+    paths:
+    - $CI_PROJECT_DIR/build/meson-logs
