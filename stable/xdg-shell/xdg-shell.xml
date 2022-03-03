@@ -615,19 +615,19 @@
 	Set the "parent" of this surface. This surface should be stacked
 	above the parent surface and all other ancestor surfaces.
 
-	Parent windows should be set on dialogs, toolboxes, or other
+	Parent surfaces should be set on dialogs, toolboxes, or other
 	"auxiliary" surfaces, so that the parent is raised when the dialog
 	is raised.
 
-	Setting a null parent for a child window removes any parent-child
-	relationship for the child. Setting a null parent for a window which
-	currently has no parent is a no-op.
+	Setting a null parent for a child surface unsets its parent. Setting
+	a null parent for a surface which currently has no parent is a no-op.
 
-	If the parent is unmapped then its children are managed as
-	though the parent of the now-unmapped parent has become the
-	parent of this surface. If no parent exists for the now-unmapped
-	parent then the children are managed as though they have no
-	parent surface.
+	Only mapped surfaces can have child surfaces. Setting a parent which
+	is not mapped is equivalent to setting a null parent. If a surface
+	becomes unmapped, its children's parent is set to the parent of
+	the now-unmapped surface. If the now-unmapped surface has no parent,
+	its children's parent is unset. If the now-unmapped surface becomes
+	mapped again, its parent-child relationship is not restored.
       </description>
       <arg name="parent" type="object" interface="xdg_toplevel" allow-null="true"/>
     </request>
