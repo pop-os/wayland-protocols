@@ -1173,10 +1173,6 @@
 	nested grabbing popup as well. When a compositor dismisses popups, it
 	will follow the same dismissing order as required from the client.
 
-	The parent of a grabbing popup must either be another xdg_popup with an
-	active explicit grab, or an xdg_popup or xdg_toplevel, if there are no
-	explicit grabs already taken.
-
 	If the topmost grabbing popup is destroyed, the grab will be returned to
 	the parent of the popup, if that parent previously had an explicit grab.
 
