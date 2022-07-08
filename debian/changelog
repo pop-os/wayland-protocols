@@ -1,3 +1,10 @@
+wayland-protocols (1.26-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control: update meson build depends version
+
+ -- Héctor Orón Martínez <zumbi@debian.org>  Fri, 08 Jul 2022 17:57:10 +0200
+
 wayland-protocols (1.25-1) unstable; urgency=medium
 
   * New upstream release.
