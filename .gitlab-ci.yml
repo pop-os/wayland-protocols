@@ -19,8 +19,9 @@ variables:
 .debian:
   variables:
     FDO_DISTRIBUTION_VERSION: bullseye
-    FDO_DISTRIBUTION_PACKAGES: 'build-essential pkg-config libwayland-dev meson'
-    FDO_DISTRIBUTION_TAG: '2021-11-09.0'
+    FDO_DISTRIBUTION_PACKAGES: 'build-essential pkg-config meson git ca-certificates libffi-dev libexpat1-dev libxml2-dev'
+    FDO_DISTRIBUTION_TAG: '2022-01-19.0'
+    FDO_DISTRIBUTION_EXEC: 'env FDO_CI_CONCURRENT=${FDO_CI_CONCURRENT} ./.gitlab-ci/debian-install.sh'
 
 check-commit:
   extends:
@@ -52,3 +53,8 @@ test-meson:
     - ninja -C build
     - meson test -C build
     - ninja -C build install
+  artifacts:
+    name: wayland-protocols-$CI_COMMIT_SHA
+    when: always
+    paths:
+    - $CI_PROJECT_DIR/build/meson-logs

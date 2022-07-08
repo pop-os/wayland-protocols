@@ -1,6 +1,6 @@
 project('wayland-protocols',
-	version: '1.25',
-	meson_version: '>= 0.54.0',
+	version: '1.26',
+	meson_version: '>= 0.55.0',
 	license: 'MIT/Expat',
 )
 
@@ -39,6 +39,7 @@ staging_protocols = {
 	'xdg-activation': ['v1'],
 	'drm-lease': ['v1'],
 	'ext-session-lock': ['v1'],
+	'single-pixel-buffer': ['v1'],
 }
 
 protocol_files = []

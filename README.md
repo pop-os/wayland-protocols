@@ -141,6 +141,26 @@ corresponding interface version bump. Backward incompatible changes can
 only be done by creating a new major version of the extension.
 ```
 
+## Use of RFC 2119 keywords
+
+Descriptions of all new protocols must use (in lowercase) and adhere to the
+proper meaning of the keywords described in
+[RFC 2119](https://www.rfc-editor.org/info/rfc2119).
+
+All protocol descriptions that follow the guidelines in RFC 2119 must
+incorporate the following text in their toplevel protocol description section:
+
+```
+The key words "must", "must not", "required", "shall", "shall not", "should",
+"should not", "recommended",  "may", and "optional" in this document are to
+be interpreted as described in IETF RFC 2119.
+```
+
+Note that not all existing protocol descriptions conform to RFC 2119. Protocol
+maintainers are encouraged to audit their descriptions, update them as needed
+to follow RFC 2119 guidelines, and mark them as conformant in the way described
+in the previous paragraph.
+
 ## Backward compatible protocol changes
 
 A protocol may receive backward compatible additions and changes. This
