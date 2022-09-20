@@ -42,6 +42,7 @@ staging_protocols = {
 	'ext-session-lock': ['v1'],
 	'single-pixel-buffer': ['v1'],
 	'xdg-activation': ['v1'],
+	'xwayland-shell': ['v1'],
 }
 
 protocol_files = []
