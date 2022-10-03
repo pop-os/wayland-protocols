@@ -36,12 +36,12 @@ unstable_protocols = {
 }
 
 staging_protocols = {
-	'xdg-activation': ['v1'],
+	'content-type': ['v1'],
 	'drm-lease': ['v1'],
+	'ext-idle-notify': ['v1'],
 	'ext-session-lock': ['v1'],
 	'single-pixel-buffer': ['v1'],
-	'ext-idle-notify': ['v1'],
-	'content-type': ['v1'],
+	'xdg-activation': ['v1'],
 }
 
 protocol_files = []
