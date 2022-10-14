@@ -1,3 +1,17 @@
+wayland-protocols (1.27-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 10 to 13.
+  * Set debhelper-compat version in Build-Depends.
+  * Re-export upstream signing key without extra signatures.
+  * Update standards version to 4.6.0, no changes needed.
+
+  [ Héctor Orón Martínez ]
+  * New upstream release
+  * debian/watch: update to new upstream release site
+
+ -- Héctor Orón Martínez <zumbi@debian.org>  Fri, 14 Oct 2022 18:14:50 +0200
+
 wayland-protocols (1.26-1) unstable; urgency=medium
 
   * New upstream release.
