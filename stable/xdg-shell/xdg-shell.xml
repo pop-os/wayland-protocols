@@ -50,6 +50,8 @@
 	     summary="the client provided an invalid surface state"/>
       <entry name="invalid_positioner" value="5"
 	     summary="the client provided an invalid positioner"/>
+      <entry name="unresponsive" value="6"
+	     summary="the client didn’t respond to a ping event in time"/>
     </enum>
 
     <request name="destroy" type="destructor">
@@ -94,7 +96,8 @@
     <request name="pong">
       <description summary="respond to a ping event">
 	A client must respond to a ping event with a pong request or
-	the client may be deemed unresponsive. See xdg_wm_base.ping.
+	the client may be deemed unresponsive. See xdg_wm_base.ping
+	and xdg_wm_base.error.unresponsive.
       </description>
       <arg name="serial" type="uint" summary="serial of the ping event"/>
     </request>
@@ -108,7 +111,9 @@
 	Compositors can use this to determine if the client is still
 	alive. It's unspecified what will happen if the client doesn't
 	respond to the ping request, or in what timeframe. Clients should
-	try to respond in a reasonable amount of time.
+	try to respond in a reasonable amount of time. The “unresponsive”
+	error is provided for compositors that wish to disconnect unresponsive
+	clients.
 
 	A compositor is free to ping in any way it wants, but a client must
 	always respond to any xdg_wm_base object it created.
