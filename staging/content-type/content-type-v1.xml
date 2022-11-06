@@ -121,7 +121,7 @@
         The content type is double-buffered state, see wl_surface.commit for
         details.
       </description>
-      <arg name="content_type" type="uint" enum="content_type"
+      <arg name="content_type" type="uint" enum="type"
            summary="the content type"/>
     </request>
   </interface>
