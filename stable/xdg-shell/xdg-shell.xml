@@ -467,12 +467,15 @@
 	     summary="Invalid serial number when acking a configure event"/>
       <entry name="invalid_size" value="5"
 	     summary="Width or height was zero or negative"/>
+      <entry name="defunct_role_object" value="6"
+	     summary="Surface was destroyed before its role object"/>
     </enum>
 
     <request name="destroy" type="destructor">
       <description summary="destroy the xdg_surface">
 	Destroy the xdg_surface object. An xdg_surface must only be destroyed
-	after its role object has been destroyed.
+	after its role object has been destroyed, otherwise
+	a defunct_role_object error is raised.
       </description>
     </request>
 
