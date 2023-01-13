@@ -1,3 +1,9 @@
+wayland-protocols (1.31-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Timo Aaltonen <tjaalton@debian.org>  Fri, 13 Jan 2023 15:57:23 +0200
+
 wayland-protocols (1.27-1) unstable; urgency=medium
 
   [ Debian Janitor ]
