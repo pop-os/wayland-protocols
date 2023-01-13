@@ -77,7 +77,7 @@ standardization.
    implementations (either 1 client + 2 servers, or 2 clients + 1 server) to be
    eligible for inclusion.
 5. Protocols in the "ext" namespace are eligible for inclusion only if ACKed by
-   at least one other member.
+   at least 2 members.
 6. Protocols in the "ext" namespace must have at least one open-source client &
    one open-source server implementation to be eligible for inclusion.
 7. "Open-source" is defined as distributed with an Open Source Initiative
