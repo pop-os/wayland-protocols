@@ -65,8 +65,8 @@
 
   <interface name="ext_session_lock_v1" version="1">
     <description summary="manage lock state and create lock surfaces">
-      On creation of this object either the locked or finished event will
-      immediately be sent.
+      In response to the creation of this object the compositor must send
+      either the locked or finished event.
 
       The locked event indicates that the session is locked. This means
       that the compositor must stop rendering and providing input to normal
@@ -77,6 +77,30 @@
       are the lock surfaces created through this interface and optionally,
       at the compositor's discretion, special privileged surfaces such as
       input methods or portions of desktop shell UIs.
+
+      The locked event must not be sent until a new "locked" frame (either
+      from a session lock surface or the compositor blanking the output) has
+      been presented on all outputs and no security sensitive normal/unlocked
+      content is possibly visible.
+
+      The finished event should be sent immediately on creation of this
+      object if the compositor decides that the locked event will not be sent.
+
+      The compositor may wait for the client to create and render session lock
+      surfaces before sending the locked event to avoid displaying intermediate
+      blank frames. However, it must impose a reasonable time limit if
+      waiting and send the locked event as soon as the hard requirements
+      described above can be met if the time limit expires. Clients should
+      immediately create lock surfaces for all outputs on creation of this
+      object to make this possible.
+
+      This behavior of the locked event is required in order to prevent
+      possible race conditions with clients that wish to suspend the system
+      or similar after locking the session. Without these semantics, clients
+      triggering a suspend after receiving the locked event would race with
+      the first "locked" frame being presented and normal/unlocked frames
+      might be briefly visible as the system is resumed if the suspend
+      operation wins the race.
 
       If the client dies while the session is locked, the compositor must not
       unlock the session in response. It is acceptable for the session to be
@@ -123,8 +147,9 @@
         This client is now responsible for displaying graphics while the
         session is locked and deciding when to unlock the session.
 
-        Either this event or the finished event will be sent immediately on
-        creation of this object.
+        The locked event must not be sent until a new "locked" frame has been
+        presented on all outputs and no security sensitive normal/unlocked
+        content is possibly visible.
 
         If this event is sent, making the destroy request is a protocol error,
         the lock object must be destroyed using the unlock_and_destroy request.
@@ -144,10 +169,13 @@
         be sent because the compositor implements some alternative, secure
         way to authenticate and unlock the session.
 
-        Either this event or the locked event will be sent exactly once on
-        creation of this object. If the locked event is sent on creation of
-        this object, the finished event may still be sent at some later time
-        in this object's lifetime, this is compositor policy.
+        The finished event should be sent immediately on creation of this
+        object if the compositor decides that the locked event will not
+        be sent.
+
+        If the locked event is sent on creation of this object the finished
+        event may still be sent at some later time in this object's
+        lifetime. This is compositor policy.
 
         Upon receiving this event, the client should make either the destroy
         request or the unlock_and_destroy request, depending on whether or
