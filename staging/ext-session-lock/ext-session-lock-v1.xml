@@ -29,6 +29,10 @@
     the session is locked the session remains locked, possibly permanently
     depending on compositor policy.
 
+    The key words "must", "must not", "required", "shall", "shall not",
+    "should", "should not", "recommended",  "may", and "optional" in this
+    document are to be interpreted as described in IETF RFC 2119.
+
     Warning! The protocol described in this file is currently in the
     testing phase. Backward compatible changes may be added together with
     the corresponding interface version bump. Backward incompatible changes
@@ -64,9 +68,9 @@
       On creation of this object either the locked or finished event will
       immediately be sent.
 
-      The locked event indicates that the session is locked. This means that
-      the compositor should stop rendering and providing input to normal
-      clients. Instead the compositor should blank all outputs with an opaque
+      The locked event indicates that the session is locked. This means
+      that the compositor must stop rendering and providing input to normal
+      clients. Instead the compositor must blank all outputs with an opaque
       color such that their normal content is fully hidden.
 
       The only surfaces that should be rendered while the session is locked
@@ -74,7 +78,7 @@
       at the compositor's discretion, special privileged surfaces such as
       input methods or portions of desktop shell UIs.
 
-      If the client dies while the session is locked, the compositor should not
+      If the client dies while the session is locked, the compositor must not
       unlock the session in response. It is acceptable for the session to be
       permanently locked if this happens. The compositor may choose to continue
       to display the lock surfaces the client had mapped before it died or
@@ -123,16 +127,16 @@
         creation of this object.
 
         If this event is sent, making the destroy request is a protocol error,
-        the lock object may only be destroyed using the unlock_and_destroy
-        request.
+        the lock object must be destroyed using the unlock_and_destroy request.
       </description>
     </event>
 
     <event name="finished">
       <description summary="the session lock object should be destroyed">
-        The compositor has decided that the session lock should be
-        destroyed. Exactly when this event is sent is compositor policy, but
-        it will never be sent more than once for a given session lock object.
+        The compositor has decided that the session lock should be destroyed
+        as it will no longer be used by the compositor. Exactly when this
+        event is sent is compositor policy, but it must never be sent more
+        than once for a given session lock object.
 
         This might be sent because there is already another ext_session_lock_v1
         object held by a client, or the compositor has decided to deny the
@@ -177,17 +181,17 @@
         verified by the client.
 
         This request also informs the compositor that the lock object will
-        no longer be used and may be safely destroyed. Existing objects
-        created through this interface remain valid.
+        no longer be used and should be destroyed. Existing objects created
+        through this interface remain valid.
 
         After this request is made, lock surfaces created through this object
         should be destroyed by the client as they will no longer be used by
         the compositor.
 
         It is a protocol error to make this request if the locked event has
-        not been sent. In that case, the lock object may only be destroyed
-        using the destroy request.
-        
+        not been sent. In that case, the lock object must be destroyed using
+        the destroy request.
+
         Note that a correct client that wishes to exit directly after unlocking
         the session must use the wl_display.sync request to ensure the server
         receives and processes the unlock_and_destroy request. Otherwise
@@ -207,7 +211,7 @@
 
       On binding this interface the compositor will immediately send the
       first configure event. After making the ack_configure request in
-      response to this event the client may attach and commit the first
+      response to this event the client should attach and commit the first
       buffer. Committing the surface before acking the first configure is a
       protocol error. Committing the surface with a null buffer at any time
       is a protocol error.
