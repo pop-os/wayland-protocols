@@ -191,6 +191,9 @@
 	xdg_output_manager.get_xdg_output). This event is only sent once per
 	xdg_output, and the name does not change over the lifetime of the
 	wl_output global.
+
+        This event is deprecated, instead clients should use wl_output.name.
+        Compositors must still support this event.
       </description>
       <arg name="name" type="string" summary="output name"/>
     </event>
@@ -212,6 +215,9 @@
 	For objects of version 2 and lower, this event is only sent once per
 	xdg_output, and the description does not change over the lifetime of
 	the wl_output global.
+
+	This event is deprecated, instead clients should use
+	wl_output.description. Compositors must still support this event.
       </description>
       <arg name="description" type="string" summary="output description"/>
     </event>
