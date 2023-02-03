@@ -35,12 +35,12 @@
     Typically, the global compositor space on a desktop system is made of
     a contiguous or overlapping set of rectangular regions.
 
-    Some of the information provided in this protocol might be identical
-    to their counterparts already available from wl_output, in which case
-    the information provided by this protocol should be preferred to their
-    equivalent in wl_output. The goal is to move the desktop specific
-    concepts (such as output location within the global compositor space,
-    the connector name and types, etc.) out of the core wl_output protocol.
+    The logical_position and logical_size events defined in this protocol
+    might provide information identical to their counterparts already
+    available from wl_output, in which case the information provided by this
+    protocol should be preferred to their equivalent in wl_output. The goal is
+    to move the desktop specific concepts (such as output location within the
+    global compositor space, etc.) out of the core wl_output protocol.
 
     Warning! The protocol described in this file is experimental and
     backward incompatible changes may be made. Backward compatible
