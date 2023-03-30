@@ -530,7 +530,9 @@
 	commit. This unset is meant for extremely simple clients.
 
 	The arguments are given in the surface-local coordinate space of
-	the wl_surface associated with this xdg_surface.
+	the wl_surface associated with this xdg_surface, and may extend outside
+	of the wl_surface itself to mark parts of the subsurface tree as part of
+	the window geometry.
 
 	When applied, the effective window geometry will be the set window
 	geometry clamped to the bounding rectangle of the combined
