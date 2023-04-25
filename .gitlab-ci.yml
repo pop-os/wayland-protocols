@@ -16,6 +16,11 @@ stages:
 variables:
   FDO_UPSTREAM_REPO: wayland/wayland-protocols
 
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_PIPELINE_SOURCE == 'push'
+
 .debian:
   variables:
     FDO_DISTRIBUTION_VERSION: bullseye
