@@ -36,6 +36,10 @@ check-commit:
     - ci-fairy check-commits --signed-off-by --junit-xml=results.xml
   variables:
     GIT_DEPTH: 100
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: always
+    - when: never
   artifacts:
     reports:
       junit: results.xml
