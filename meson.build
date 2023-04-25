@@ -38,6 +38,7 @@ unstable_protocols = {
 staging_protocols = {
 	'content-type': ['v1'],
 	'drm-lease': ['v1'],
+	'ext-foreign-toplevel-list': ['v1'],
 	'ext-idle-notify': ['v1'],
 	'ext-session-lock': ['v1'],
 	'fractional-scale': ['v1'],
