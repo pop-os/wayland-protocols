@@ -1,12 +1,15 @@
 project('wayland-protocols',
 	version: '1.37',
-	meson_version: '>= 0.55.0',
+	meson_version: '>= 0.58.0',
 	license: 'MIT/Expat',
 )
 
 wayland_protocols_version = meson.project_version()
 
 fs = import('fs')
+
+dep_scanner = dependency('wayland-scanner', version: '>=1.20.0', native: true, fallback: 'wayland')
+prog_scanner = find_program(dep_scanner.get_variable(pkgconfig: 'wayland_scanner', internal: 'wayland_scanner'))
 
 stable_protocols = {
 	'presentation-time': [''],
@@ -108,6 +111,12 @@ foreach protocol_file : protocol_files
 	)
 endforeach
 
+include_dirs = []
+if dep_scanner.version().version_compare('>=1.22.90')
+	subdir('include/wayland-protocols')
+	include_dirs = ['include']
+endif
+
 wayland_protocols_srcdir = meson.current_source_dir()
 
 pkgconfig_configuration = configuration_data()
@@ -132,6 +141,7 @@ configure_file(
 )
 
 wayland_protocols = declare_dependency(
+	include_directories: include_dirs,
 	variables: {
 		'pkgdatadir': wayland_protocols_srcdir,
 	},
@@ -142,3 +152,7 @@ meson.override_dependency('wayland-protocols', wayland_protocols)
 if get_option('tests')
 	subdir('tests')
 endif
+
+summary({
+	'Headers': include_dirs.length() > 0,
+}, bool_yn: true)
