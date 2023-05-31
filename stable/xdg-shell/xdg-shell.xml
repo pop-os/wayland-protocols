@@ -436,8 +436,10 @@
 
       After creating a role-specific object and setting it up, the client must
       perform an initial commit without any buffer attached. The compositor
-      will reply with an xdg_surface.configure event. The client must
-      acknowledge it and is then allowed to attach a buffer to map the surface.
+      will reply with initial wl_surface state such as
+      wl_surface.preferred_buffer_scale followed by an xdg_surface.configure
+      event. The client must acknowledge it and is then allowed to attach a
+      buffer to map the surface.
 
       Mapping an xdg_surface-based role surface is defined as making it
       possible for the surface to be shown by the compositor. Note that
