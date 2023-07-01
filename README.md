@@ -10,6 +10,11 @@ A protocol in wayland-protocols consists of a directory containing a set
 of XML files containing the protocol specification, and a README file
 containing detailed state and a list of maintainers.
 
+wayland-protocols is a standardization body formed of various Wayland
+compositor and client developers. The governance rules are described in
+[GOVERNANCE.md](GOVERNANCE.md) and the current members are listed in
+[MEMBERS.md](MEMBERS.md).
+
 ## Protocol phases
 
 Protocols in general have three phases: the development phase, the testing
