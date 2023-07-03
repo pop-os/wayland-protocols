@@ -196,8 +196,8 @@ The procedure of doing this is the following:
   same name as the protocol directory in the `staging/` directory.
 - Copy the final version of the XML that is the version that was
   decided to be declared stable into the new directory. The target name
-  should be the same name as the protocol directory but with the `.xml`
-  suffix.
+  should be the same name as the protocol directory plus the version and
+  the `.xml` suffix.
 - Remove the disclaimer about the protocol being in the testing phase.
 - Update the `README` file in the staging directory and create a new
   `README` file in the new directory.
