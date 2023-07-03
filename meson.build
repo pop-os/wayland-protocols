@@ -12,6 +12,7 @@ stable_protocols = {
 	'presentation-time': [''],
 	'viewporter': [''],
 	'xdg-shell': [''],
+	'linux-dmabuf': ['v1'],
 }
 
 unstable_protocols = {
