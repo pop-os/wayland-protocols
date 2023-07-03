@@ -8,11 +8,11 @@ wayland_protocols_version = meson.project_version()
 
 fs = import('fs')
 
-stable_protocols = [
-	'presentation-time',
-	'viewporter',
-	'xdg-shell',
-]
+stable_protocols = {
+	'presentation-time': [''],
+	'viewporter': [''],
+	'xdg-shell': [''],
+}
 
 unstable_protocols = {
 	'fullscreen-shell': ['v1'],
@@ -53,8 +53,14 @@ staging_protocols = {
 
 protocol_files = []
 
-foreach name : stable_protocols
-	protocol_files += ['stable/@0@/@0@.xml'.format(name)]
+foreach name, versions : stable_protocols
+	foreach version : versions
+		if version == ''
+			protocol_files += ['stable/@0@/@0@.xml'.format(name)]
+		else
+			protocol_files += ['stable/@0@/@0@-@1@.xml'.format(name, version)]
+		endif
+	endforeach
 endforeach
 
 foreach name, versions : staging_protocols
