@@ -57,16 +57,16 @@ foreach name : stable_protocols
 	protocol_files += ['stable/@0@/@0@.xml'.format(name)]
 endforeach
 
-foreach name : staging_protocols.keys()
-	foreach version : staging_protocols.get(name)
+foreach name, versions : staging_protocols
+	foreach version : versions
 		protocol_files += [
 			'staging/@0@/@0@-@1@.xml'.format(name, version)
 		]
 	endforeach
 endforeach
 
-foreach name : unstable_protocols.keys()
-	foreach version : unstable_protocols.get(name)
+foreach name, versions : unstable_protocols
+	foreach version : versions
 		protocol_files += [
 			'unstable/@0@/@0@-unstable-@1@.xml'.format(name, version)
 		]
