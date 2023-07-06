@@ -163,6 +163,11 @@
         Atomically register the new client and attach the security context
         metadata.
 
+        If the provided metadata is inconsistent or does not match with out of
+        band metadata (see
+        https://gitlab.freedesktop.org/wayland/wayland-protocols/-/blob/main/staging/security-context/engines.md),
+        the invalid_metadata error may be sent eventually.
+
         It's a protocol error to send any request other than "destroy" after
         this request. In this case, the already_used error is sent.
       </description>
