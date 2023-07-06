@@ -73,6 +73,9 @@
 
         The compositor must continue to accept connections on listen_fd when
         the Wayland client which created the security context disconnects.
+
+        After sending this request, closing listen_fd and close_fd remains the
+        only valid operation on them.
       </description>
       <arg name="id" type="new_id" interface="wp_security_context_v1"/>
       <arg name="listen_fd" type="fd" summary="listening socket FD"/>
