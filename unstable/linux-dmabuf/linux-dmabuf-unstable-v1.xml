@@ -86,6 +86,11 @@
       For all DRM formats and unless specified in another protocol extension,
       pre-multiplied alpha is used for pixel values.
 
+      Unless specified otherwise in another protocol extension, implicit
+      synchronization is used. In other words, compositors and clients must
+      wait and signal fences implicitly passed via the DMA-BUF's reservation
+      mechanism.
+
       Warning! The protocol described in this file is experimental and
       backward incompatible changes may be made. Backward compatible changes
       may be added together with the corresponding interface version bump.
