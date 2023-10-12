@@ -12,7 +12,7 @@ containing detailed state and a list of maintainers.
 
 ## Protocol phases
 
-Protocols in general has three phases: the development phase, the testing
+Protocols in general have three phases: the development phase, the testing
 phase, and the stable phase.
 
 In the development phase, a protocol is not officially part of
@@ -31,14 +31,14 @@ When a protocol has reached a stage where it is ready for wider adoption,
 and after the [GOVERNANCE section
 2.3](GOVERNANCE.md#2.3-introducing-new-protocols) requirements have been
 met, it enters the "testing" phase. At this point, the protocol is added
-to `staging/` directory of wayland-protocols and made part of a release.
+to the `staging/` directory of wayland-protocols and made part of a release.
 What this means is that implementation is encouraged in clients and
 compositors where the functionality it specifies is wanted.
 
 Extensions in staging cannot have backward incompatible changes, in that
 sense they are equal to stable extensions. However, they may be completely
-replaced with a new major version, or a different protocol extension all
-together, if design flaws are found in the testing phase.
+replaced with a new major version, or a different protocol extension altogether,
+if design flaws are found in the testing phase.
 
 After a staging protocol has been sufficiently tested in the wild and
 proven adequate, its maintainers and the community at large may declare it
@@ -58,8 +58,8 @@ previously used by wayland-protocols, where protocols initially
 placed in the `unstable/` directory had certain naming conventions were
 applied, requiring a backward incompatible change to be declared "stable".
 
-During this phase, protocol extension interface names were in addition to
-the major version postfix also prefixed with `z` to distinguish from
+During this phase, protocol extension interface names were, in addition to
+the major version postfix, also prefixed with `z` to distinguish them from
 stable protocols.
 
 ## Protocol directory tree structure
@@ -243,7 +243,7 @@ protocol.
 period.
 
 For the meaning and requirement of acknowledgments and available
-implementations, see the GOVERNANCE.md document.
+implementations, see the [GOVERNANCE.md](GOVERNANCE.md) document.
 
 ### Managing merge requests
 
