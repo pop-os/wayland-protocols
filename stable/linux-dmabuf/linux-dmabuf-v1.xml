@@ -24,7 +24,7 @@
     DEALINGS IN THE SOFTWARE.
   </copyright>
 
-  <interface name="zwp_linux_dmabuf_v1" version="4">
+  <interface name="zwp_linux_dmabuf_v1" version="5">
     <description summary="factory for creating dmabuf-based wl_buffers">
       Following the interfaces from:
       https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_image_dma_buf_import.txt
@@ -186,7 +186,7 @@
     </request>
   </interface>
 
-  <interface name="zwp_linux_buffer_params_v1" version="4">
+  <interface name="zwp_linux_buffer_params_v1" version="5">
     <description summary="parameters for creating a dmabuf-based wl_buffer">
       This temporary object is a collection of dmabufs and other
       parameters that together form a single logical buffer. The temporary
@@ -245,6 +245,9 @@
 
         Starting from version 4, the invalid_format protocol error is sent if
         the format + modifier pair was not advertised as supported.
+
+        Starting from version 5, the invalid_format protocol error is sent if
+        all planes don't use the same modifier.
 
         This request raises the PLANE_IDX error if plane_idx is too large.
         The error PLANE_SET is raised if attempting to set a plane that
@@ -393,7 +396,7 @@
     </request>
   </interface>
 
-  <interface name="zwp_linux_dmabuf_feedback_v1" version="4">
+  <interface name="zwp_linux_dmabuf_feedback_v1" version="5">
     <description summary="dmabuf feedback">
       This object advertises dmabuf parameters feedback. This includes the
       preferred devices and the supported formats/modifiers.
