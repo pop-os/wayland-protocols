@@ -1,11 +1,11 @@
-wayland-protocols (1.33-1) UNRELEASED; urgency=medium
+wayland-protocols (1.33-1) unstable; urgency=medium
 
   * Team upload.
   * New upstream release. (Closes: #1061535, LP: #2050856)
   * Update standards version to 4.6.2, no changes needed.
   * Convert debian/copyright to DEP5 format.
 
- -- Dylan Aïssi <daissi@debian.org>  Sun, 28 Jan 2024 10:49:14 +0100
+ -- Dylan Aïssi <daissi@debian.org>  Sun, 28 Jan 2024 11:29:16 +0100
 
 wayland-protocols (1.32-1) unstable; urgency=medium
 
