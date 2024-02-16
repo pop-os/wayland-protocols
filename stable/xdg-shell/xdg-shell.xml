@@ -344,7 +344,7 @@
 
 	The default adjustment is none.
       </description>
-      <arg name="constraint_adjustment" type="uint"
+      <arg name="constraint_adjustment" type="uint" enum="constraint_adjustment"
 	   summary="bit mask of constraint adjustments"/>
     </request>
 
