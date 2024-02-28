@@ -13,6 +13,7 @@ stable_protocols = {
 	'viewporter': [''],
 	'xdg-shell': [''],
 	'linux-dmabuf': ['v1'],
+	'tablet': ['v2'],
 }
 
 unstable_protocols = {
