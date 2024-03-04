@@ -53,6 +53,7 @@ staging_protocols = {
 	'xdg-dialog': ['v1'],
 	'xdg-toplevel-drag': ['v1'],
 	'xwayland-shell': ['v1'],
+	'alpha-modifier': ['v1'],
 }
 
 protocol_files = []
