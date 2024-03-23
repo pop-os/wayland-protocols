@@ -4,6 +4,7 @@ wayland-protocols (1.34-1) UNRELEASED; urgency=medium
   * New upstream release.
   * Switch to pkgconf in Build-Deps
   * Add debian/upstream/metadata
+  * Refresh debian/copyright
 
  -- Dylan Aïssi <daissi@debian.org>  Sat, 23 Mar 2024 10:34:22 +0100
 
