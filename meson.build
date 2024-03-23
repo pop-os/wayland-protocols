@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.33',
+	version: '1.34',
 	meson_version: '>= 0.55.0',
 	license: 'MIT/Expat',
 )
@@ -44,11 +44,14 @@ staging_protocols = {
 	'ext-idle-notify': ['v1'],
 	'ext-session-lock': ['v1'],
 	'fractional-scale': ['v1'],
+	'linux-drm-syncobj': ['v1'],
 	'security-context': ['v1'],
 	'single-pixel-buffer': ['v1'],
 	'tearing-control': ['v1'],
 	'ext-transient-seat': ['v1'],
 	'xdg-activation': ['v1'],
+	'xdg-dialog': ['v1'],
+	'xdg-toplevel-drag': ['v1'],
 	'xwayland-shell': ['v1'],
 }
 
