@@ -1,4 +1,4 @@
-wayland-protocols (1.34-1) UNRELEASED; urgency=medium
+wayland-protocols (1.34-1) unstable; urgency=medium
 
   * Team upload.
   * New upstream release.
@@ -6,7 +6,7 @@ wayland-protocols (1.34-1) UNRELEASED; urgency=medium
   * Add debian/upstream/metadata
   * Refresh debian/copyright
 
- -- Dylan Aïssi <daissi@debian.org>  Sat, 23 Mar 2024 10:34:22 +0100
+ -- Dylan Aïssi <daissi@debian.org>  Sat, 23 Mar 2024 10:57:20 +0100
 
 wayland-protocols (1.33-1) unstable; urgency=medium
 
