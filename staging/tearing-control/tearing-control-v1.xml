@@ -100,7 +100,7 @@
     <request name="set_presentation_hint">
       <description summary="set presentation hint">
         Set the presentation hint for the associated wl_surface. This state is
-        double-buffered and is applied on the next wl_surface.commit.
+        double-buffered, see wl_surface.commit.
 
         The compositor is free to dynamically respect or ignore this hint based
         on various conditions like hardware capabilities, surface state and
