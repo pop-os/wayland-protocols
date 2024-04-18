@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.34',
+	version: '1.35',
 	meson_version: '>= 0.55.0',
 	license: 'MIT/Expat',
 )
@@ -13,6 +13,7 @@ stable_protocols = {
 	'viewporter': [''],
 	'xdg-shell': [''],
 	'linux-dmabuf': ['v1'],
+	'tablet': ['v2'],
 }
 
 unstable_protocols = {
@@ -53,6 +54,7 @@ staging_protocols = {
 	'xdg-dialog': ['v1'],
 	'xdg-toplevel-drag': ['v1'],
 	'xwayland-shell': ['v1'],
+	'alpha-modifier': ['v1'],
 }
 
 protocol_files = []
