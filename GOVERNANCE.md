@@ -103,43 +103,7 @@ standardization.
 6. Declaring a protocol stable may be proposed by the same process, with the
    regular 30 day minimum discussion period.
 
-## 3. Protocol adoption documentation
-
-### 3.1. Adoption website
-
-1. This section is informational.
-2. A website will be made available for interested parties to browse the
-   implementation status of protocols included in wayland-protocols.
-3. A statement from each member of wayland-protocols will be included on the
-   site.
-4. Each protocol will be listed along with its approval status from each member.
-5. The approval statuses are:
-   1. NACK, or "negative acknowledgement", meaning that the member is opposed to
-      the protocol in principle.
-   2. NOPP, or "no opposition", meaning that the member is not opposed to the
-      protocol in principle, but does not provide an implementation.
-   3. ACK, or "acknowledged", meaning that the member supports the protocol in
-      principle, but does not provide an implementation.
-   4. IMPL, or "implemented", meaning that the member supports the protocol and
-      provides an implementation.
-6. Each member may write a short statement expanding on the rationale for their
-   approval status, which will be included on the site.
-7. A supplementary list of implementations will also be provided on the site,
-   which may include implementations supported by non-members.
-
-### 3.2. Changes to the adoption website
-
-1. This section is informational.
-2. A new protocol is added to the website by the sponsoring member at the
-   conclusion of the discussion period (section 2.3.3).
-3. During the discussion period (section 2.3.3), interested parties may express
-   their approval status on the Gitlab merge request. The default approval
-   status for members who do not participate in the discussion is "NOPP".
-4. Members may change their acknowledgement status or support statement at any
-   time after the discussion period (section 2.3.3) has closed by simply merging
-   their update in the wayland-protocols repository.
-
-## 4. Amending this document
+## 3. Amending this document
 
 1. An amendment to this document may be proposed any member by
    submitting a merge request on Gitlab.
