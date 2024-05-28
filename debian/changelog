@@ -1,3 +1,10 @@
+wayland-protocols (1.36-1) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+
+ -- Dylan Aïssi <daissi@debian.org>  Tue, 28 May 2024 21:18:15 +0200
+
 wayland-protocols (1.35-1) unstable; urgency=medium
 
   * Team upload.
