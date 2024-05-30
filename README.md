@@ -82,7 +82,7 @@ placed here.
 ## Protocol development procedure
 
 To propose a new protocol, create a GitLab merge request adding the
-relevant files and Makefile.am entry to the repository with the
+relevant files and `meson.build` entry to the repository with the
 explanation and motivation in the commit message. Protocols are
 organized in namespaces describing their scope ("wp", "xdg" and "ext").
 There are different requirements for each namespace, see [GOVERNANCE
