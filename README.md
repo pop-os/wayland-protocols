@@ -83,7 +83,7 @@ section 2] for more information.
 
 If the new protocol is just an idea, open an issue on the GitLab issue
 tracker. If the protocol isn't ready for complete review yet and is an
-RFC, create a merge request and add the "WIP:" prefix in the title.
+RFC, create a merge request and add the "Draft:" prefix in the title.
 
 To propose changes to existing protocols, create a GitLab merge request.
 
