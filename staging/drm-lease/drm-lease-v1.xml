@@ -193,6 +193,10 @@
         encouraged to send this event when they lose access to connector, for
         example when the connector is hot-unplugged, when the connector gets
         leased to a client or when the compositor loses DRM master.
+
+        If a client holds a lease for the connector, the status of the lease
+        remains the same. The client should destroy the object after receiving
+        this event.
       </description>
     </event>
 
