@@ -305,6 +305,10 @@
         The client should send this to indicate that it no longer wishes to use
         this lease. The compositor should use drmModeRevokeLease on the
         appropriate file descriptor, if necessary.
+
+        Upon destruction, the compositor should advertise the connector for
+        leasing again by sending the connector event through the
+        wp_drm_lease_device_v1 interface.
       </description>
     </request>
   </interface>
