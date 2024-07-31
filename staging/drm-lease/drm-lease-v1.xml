@@ -296,7 +296,9 @@
         no further events for this object after sending the finish event.
         Compositors should revoke the lease when any of the leased resources
         become unavailable, namely when a hot-unplug occurs or when the
-        compositor loses DRM master.
+        compositor loses DRM master. Compositors may advertise the connector
+        for leasing again, if the resource is available, by sending the
+        connector event through the wp_drm_lease_device_v1 interface.
       </description>
     </event>
 
