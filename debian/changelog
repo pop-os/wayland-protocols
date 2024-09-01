@@ -1,9 +1,9 @@
-wayland-protocols (1.37-1) UNRELEASED; urgency=medium
+wayland-protocols (1.37-1) unstable; urgency=medium
 
   * Team upload.
   * New upstream release.
 
- -- Dylan Aïssi <daissi@debian.org>  Sun, 01 Sep 2024 16:51:53 +0200
+ -- Dylan Aïssi <daissi@debian.org>  Sun, 01 Sep 2024 16:54:46 +0200
 
 wayland-protocols (1.36-1) unstable; urgency=medium
 
