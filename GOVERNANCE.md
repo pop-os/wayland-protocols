@@ -74,6 +74,12 @@ standardization.
 5. The "ext" namespace is established as a general catch-all for protocols that
    fit into no other namespace.
 
+#### 2.1.1 Experimental protocol namespacing
+
+1. Experimental protocols begin with the "xx" namespace and do not include any relation
+   to namespaces specified in section 2.1.
+2. Namespacing of experimental protocols is determined upon promotion.
+
 ### 2.2. Protocol inclusion requirements
 
 1. All protocols found in the "xdg" and "wp" namespaces at the time of writing
@@ -95,6 +101,13 @@ standardization.
    by at least one member project. For the purposes of this clause, reviews from
    the individual protocol author(s) are disregarded.
 
+#### 2.2.1 Experimental protocol inclusion requirements
+
+1. Experimental protocols must be valid XML which can be consumed by wayland-scanner.
+2. All such protocols must be created with a proposal merge request outlining the
+   need for and purpose of the protocol.
+3. All such protocols must be clearly tagged as experimental.
+
 ### 2.3. Introducing new protocols
 
 1. A new protocol may be proposed by submitting a merge request to the
@@ -112,6 +125,32 @@ standardization.
    no minimum discussion period.
 6. Declaring a protocol stable may be proposed by the same process, with the
    regular 30 day minimum discussion period.
+
+### 2.3.1 Introducing new experimental protocols
+
+1. Experimental protocols are merged into wayland-protocols after a two
+   week review period upon the author's request unless a NACK has been given or
+   a WAIT is in progress.
+2. If all NACKs are removed from an experimental protocol, the two week review period is
+   started anew.
+
+### 2.3.2 Experimental protocol removal policy
+
+1. Unmaintained experimental protocols are removed after a three month period of
+   inactivity by its author, as determined by all of the following being true:
+   * No changes have been made to the protocol by the author
+   * No comments have been made to the protocol merge request by the author
+   * No mails have been sent to the mailing list persuant to the protocol by the author
+2. A notification of intent to remove shall be given to the author in the protocol
+   merge request, and the protocol shall only be removed following a one week grace period
+   of continued inactivity.
+
+### 2.3.3 Experimental protocol promotion
+
+1. A merged experimental protocol may be promoted to `staging/`
+   upon request if it meets the requirements for landing as a
+   `staging/` protocol.
+2. Upon promotion, an experimental protocol is removed from `experimental/`.
 
 ## 3. Amending this document
 
