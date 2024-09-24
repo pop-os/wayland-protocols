@@ -10,6 +10,6 @@
   (@eskilblomfeldt)
 - Smithay/Cosmic: Victoria Brekenfeld <wayland@drakulix.de> (@drakulix)
 - Weston: Pekka Paalanen <pekka.paalanen@collabora.com> (@pq),
-  Daniel Stone <daniel@fooishbar.org> (@daniels)
+  Derek Foreman <derek.foreman@collabora.com> (@derekf)
 - wlroots/Sway: Simon Ser <contact@emersion.fr> (@emersion),
   Simon Zeni <simon@bl4ckb0ne.ca> (@bl4ckb0ne)
