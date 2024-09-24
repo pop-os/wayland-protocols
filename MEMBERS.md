@@ -4,6 +4,8 @@
   Carlos Garnacho <carlosg@gnome.org> (@carlosg)
 - KWin: Vlad Zahorodnii <vlad.zahorodnii@kde.org> (@zzag),
   David Edmundson <david@davidedmundson.co.uk> (@davidedmundson)
+- mesa: Daniel Stone <daniel@fooishbar.org> (@daniels),
+  Mike Blumenkrantz <michael.blumenkrantz@gmail.com> (@zmike)
 - Mir: Christopher James Halse Rogers <raof@ubuntu.com> (@RAOF),
   Alan Griffiths <alan.griffiths@canonical.com>
 - Qt: Eskil Abrahamsen Blomfeldt <eskil.abrahamsen-blomfeldt@qt.io>
