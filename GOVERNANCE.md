@@ -16,10 +16,9 @@ standardization.
 2. Member projects represent general-purpose projects with a stake in multiple
    Wayland protocols (e.g. compositors, GUI toolkits, etc), rather than
    special-purpose applications with a stake in only one or two.
-3. Each member project must provide one or two named individuals as
-   points-of-contact for that project who can be reached to discuss
-   protocol-related matters.
-4. During a vote, if two points-of-contact for the same member project
+3. Each member project must provide named individuals as point of contact
+   for that project who can be reached to discuss protocol-related matters.
+4. During a vote, if any points-of-contact for the same member project
    disagree, the member project's vote is considered blank.
 
 ### 1.2. Becoming a member
@@ -115,9 +114,9 @@ standardization.
 2. Protocol proposal posts must include justification for their inclusion in
    their namespace per the requirements outlined in section 2.2.
 3. An indefinite discussion period for comments from wayland-protocols members
-   will be held, with a minimum duration of 30 days. Protocols which require a
-   certain level of implementation status, ACKs from members, and so on, should
-   use this time to acquire them.
+   will be held, with a minimum duration of 30 days beginning from the time when
+   the MR was opened. Protocols which require a certain level of implementation
+   status, ACKs from members, and so on, should use this time to acquire them.
 4. When the proposed protocol meets all requirements for inclusion per section
    2.2, and the minimum discussion period has elapsed, the sponsoring member may
    merge their changes into the wayland-protocol repository.
@@ -125,6 +124,38 @@ standardization.
    no minimum discussion period.
 6. Declaring a protocol stable may be proposed by the same process, with the
    regular 30 day minimum discussion period.
+7. A member project has the option to invoke the 30 day discussion period for any
+   staging protocol proposal which has been in use without substantive changes
+   for a period of one year.
+
+### 2.4. Development stalemate resolution
+
+1. In the event that a discussion thread reaches a stalemate which cannot be
+   resolved, a tie-breaking vote can be requested by the protocol author or
+   any member project.
+2. All member projects are eligible to vote in stalemate tie-breakers. Each project
+   may cast a single vote.
+3. Tie-breaker voting periods last no fewer than seven days.
+4. Tie-breaker votes must be between two choices.
+5. Any member project may elect to extend the voting period by an additional seven days.
+   This option may only be invoked once per member project per tie-breaker and shall
+   not be used without cause.
+6. At the end of the voting period, the choice with the most votes is declared
+   the winner, and development proceeds using that idea.
+7. In the event of a tie, the protocol author casts the deciding vote.
+
+### 2.5. Representation of non-members
+
+1. A protocol proposed by a non-member inherently begins at a
+   responsibility deficit as compared to one initiated by a member project.
+2. To address this, any protocol proposed by a non-member intended for `staging/` or
+   `stable/` may have a sponsor designated from a member project
+3. The sponsor should have a strong understanding of the protocol they
+   represent as well as the time required to drive it.
+4. The sponsor shall be responsible for representing the protocol and its
+   author in all cases which require membership, e.g., stalemate voting.
+5. The member projects shall provide a sponsor for a non-member project upon request.
+6. An author may make a one-time request for a different sponsor at any point.
 
 ### 2.3.1 Introducing new experimental protocols
 

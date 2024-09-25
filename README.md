@@ -95,6 +95,16 @@ that you wrote it or otherwise have the right to pass it on as an
 open-source patch. See the [Developer Certificate of Origin] for a formal
 definition.
 
+## Protocol development recommendations
+
+It is recommended that protocols be small and specific in scope in order to
+minimize sites of friction.
+
+Development discussion should be approached with a fresh, productive mindset
+and an openness to explore contrary ideas.
+
+Development discussions must remain civil and technical in nature at all times.
+
 ## Interface naming convention
 
 All protocols should avoid using generic namespaces or no namespaces in
