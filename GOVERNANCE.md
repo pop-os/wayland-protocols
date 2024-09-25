@@ -183,7 +183,29 @@ standardization.
    `staging/` protocol.
 2. Upon promotion, an experimental protocol is removed from `experimental/`.
 
-## 3. Amending this document
+## 3. NACKs
+
+1. Expressing a NACK is the sole purview of listed points-of-contact from member projects,
+   as specified in MEMBERS.md.
+   A NACK must be grounded in technical reasoning, and it constitutes the final resort
+   to block protocols which would harm the ecosystem or the project.
+2. Any non-point-of-contact mentioning a NACK on a non-governance protocol issue, merge request,
+   or mailing list thread, for any purpose, shall be banned from the project for a
+   period of no fewer than three months. Additional penalties for repeat infractions
+   may be imposed at the discretion of a membership majority. A warning, delivered in private
+   if at all possible, shall be issued instead of a ban for first-time violations of this rule.
+   Any comments violating this rule shall be explicitly marked by member projects to indicate that
+   the NACK is invalid and has no bearing.
+3. Any member project mentioning a NACK on a non-governance protocol issue, merge request,
+   or mailing list thread, for any reason that may be considered non-technical,
+   may undergo trial by eligible member projects upon receiving a written accusation of
+   impropriety. This accusation may be public or private, and it may occur by any method
+   of written communication.
+   If this NACK is determined by 2/3 majority of eligible member projects to be used improperly,
+   the offending point-of-contact shall be removed.
+4. Eligible member projects during such review periods are those who have opted not to recuse themselves.
+
+## 4. Amending this document
 
 1. An amendment to this document may be proposed by any member project by
    submitting a merge request on Gitlab.
