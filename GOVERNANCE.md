@@ -28,8 +28,9 @@ standardization.
    invitation from an existing member. Projects hoping to join should reach out
    to an existing member project or point of contact, asking for this
    invitation.
-2. New member projects shall write to the wayland-devel mailing list stating
-   their intention of joining and their sponsor member.
+2. Prospective new member projects shall file a merge request tagged
+   `governance` adding themselves to the list in `MEMBERS.md`, noting their
+   sponsor member.
 3. A point of contact for the sponsor member shall respond acknowledging their
    sponsorship of the membership.
 4. A 14 day discussion period for comments from wayland-protocols members will
@@ -37,18 +38,18 @@ standardization.
 5. At the conclusion of the discussion period, the new membership is
    established unless their application was NACKed by a 1/2 majority of all
    existing member projects.
-6. Member projects may vary their point(s) of contact by proposing the
-   addition and/or removal of points of contact in a message to the
-   wayland-devel mailing list, subject to approval as in points 4 and 5
-   above.
+6. Member projects may vary their point(s) of contact by proposing the addition
+   and/or removal of points of contact in a merge request tagged `governance`,
+   subject to approval as in points 4 and 5 above.
 
 ### 1.3. Ceasing membership
 
-1. A member project, or point of contact, may step down by writing their
-   intention to do so to the wayland-devel mailing list.
+1. A member project, or point of contact, may step down by submitting a merge
+   request tagged `governance` removing themselves from `MEMBERS.md`.
 2. A removal vote may be called for by an existing member project or point of
-   contact, by posting to the wayland-devel mailing list. This begins a 14 day
-   voting & discussion period.
+   contact, by filing a merge request tagged `governance`, removing the
+   specific member project or point of contact from `MEMBERS.md`. This begins a
+   14 day voting & discussion period.
 3. At the conclusion of the voting period, the member is removed if the votes
    total 2/3rds of all current member projects.
 4. Removed members are not eligible to apply for membership again for a period
