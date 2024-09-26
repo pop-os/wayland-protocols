@@ -37,6 +37,10 @@ standardization.
 5. At the conclusion of the discussion period, the new membership is
    established unless their application was NACKed by a 1/2 majority of all
    existing member projects.
+6. Member projects may vary their point(s) of contact by proposing the
+   addition and/or removal of points of contact in a message to the
+   wayland-devel mailing list, subject to approval as in points 4 and 5
+   above.
 
 ### 1.3. Ceasing membership
 
