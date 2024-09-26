@@ -13,39 +13,43 @@ standardization.
 ### 1.1. Membership requirements
 
 1. Membership is extended to projects, rather than individuals.
-2. Members represent general-purpose projects with a stake in multiple Wayland
-   protocols (e.g. compositors, GUI toolkits, etc), rather than special-purpose
-   applications with a stake in only one or two.
-3. Each project must provide one or two named individuals as points-of-contact
-   for that project who can be reached to discuss protocol-related matters.
-4. During a vote, if two points-of-contact for the same member disagree, the
-   member's vote is considered blank.
+2. Member projects represent general-purpose projects with a stake in multiple
+   Wayland protocols (e.g. compositors, GUI toolkits, etc), rather than
+   special-purpose applications with a stake in only one or two.
+3. Each member project must provide one or two named individuals as
+   points-of-contact for that project who can be reached to discuss
+   protocol-related matters.
+4. During a vote, if two points-of-contact for the same member project
+   disagree, the member project's vote is considered blank.
 
 ### 1.2. Becoming a member
 
-1. New members who meet the criteria outlined in 1.1 are established by
+1. New member projects who meet the criteria outlined in 1.1 are established by
    invitation from an existing member. Projects hoping to join should reach out
-   to an existing member asking for this invitation.
-2. New members shall write to the wayland-devel mailing list stating their
-   intention of joining and their sponsor.
-3. The sponsor shall respond acknowledging their sponsorship of the membership.
+   to an existing member project or point of contact, asking for this
+   invitation.
+2. New member projects shall write to the wayland-devel mailing list stating
+   their intention of joining and their sponsor member.
+3. A point of contact for the sponsor member shall respond acknowledging their
+   sponsorship of the membership.
 4. A 14 day discussion period for comments from wayland-protocols members will
    be held.
-5. At the conclusion of the discussion period, the new membership is established
-   unless their application was NACKed by a 1/2 majority of all existing members.
+5. At the conclusion of the discussion period, the new membership is
+   established unless their application was NACKed by a 1/2 majority of all
+   existing member projects.
 
 ### 1.3. Ceasing membership
 
-1. A member may step down by writing their intention to do so to the
-   wayland-devel mailing list.
-2. A removal vote may be called for by an existing member by posting to the
-   wayland-devel mailing list. This begins a 14 day voting & discussion
-   period.
+1. A member project, or point of contact, may step down by writing their
+   intention to do so to the wayland-devel mailing list.
+2. A removal vote may be called for by an existing member project or point of
+   contact, by posting to the wayland-devel mailing list. This begins a 14 day
+   voting & discussion period.
 3. At the conclusion of the voting period, the member is removed if the votes
-   total 2/3rds of all current members.
+   total 2/3rds of all current member projects.
 4. Removed members are not eligible to apply for membership again for a period
    of 1 year.
-5. Following a failed vote, the member who called for the vote cannot
+5. Following a failed vote, the member project who called for the vote cannot
    call for a re-vote or propose any other removal for 90 days.
 
 ## 2. Protocols
@@ -77,13 +81,14 @@ standardization.
    implementations (either 1 client + 2 servers, or 2 clients + 1 server) to be
    eligible for inclusion.
 5. Protocols in the "ext" namespace are eligible for inclusion only if ACKed by
-   at least 2 members.
+   at least 2 member projects.
 6. Protocols in the "ext" namespace must have at least one open-source client &
    one open-source server implementation to be eligible for inclusion.
 7. "Open-source" is defined as distributed with an Open Source Initiative
    approved license.
 8. All protocols are eligible for inclusion only if formally reviewed in-depth
-   by at least one member's point-of-contact different from the author.
+   by at least one member project. For the purposes of this clause, reviews from
+   the individual protocol author(s) are disregarded.
 
 ### 2.3. Introducing new protocols
 
@@ -105,11 +110,11 @@ standardization.
 
 ## 3. Amending this document
 
-1. An amendment to this document may be proposed any member by
+1. An amendment to this document may be proposed by any member project by
    submitting a merge request on Gitlab.
 2. A 30 day discussion period for comments from wayland-protocols members will
    be held.
 3. At the conclusion of the discussion period, an amendment will become
-   effective if it's ACKed by at least 2/3rds of all wayland-protocols members,
-   and NACKed by none. The sponsoring member may merge their change to the
-   wayland-protocols repository at this point.
+   effective if it's ACKed by at least 2/3rds of all wayland-protocols member
+   projects, and NACKed by none. The sponsoring member may merge their change
+   to the wayland-protocols repository at this point.
