@@ -221,7 +221,7 @@
 
     <request name="destroy" type="destructor">
       <description summary="destroy this object">
-        Destroys the session. This request can be sent at any time by the
+        Destroys the frame. This request can be sent at any time by the
         client.
       </description>
     </request>
