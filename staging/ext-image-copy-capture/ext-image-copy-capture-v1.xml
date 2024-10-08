@@ -92,7 +92,7 @@
       formats are supported for reading from the session. The compositor may
       re-send buffer constraint events whenever they change.
 
-      The advertise buffer constraints, the compositor must send in no
+      To advertise buffer constraints, the compositor must send in no
       particular order: zero or more shm_format and dmabuf_format events, zero
       or one dmabuf_device event, and exactly one buffer_size event. Then the
       compositor must send a done event.
