@@ -376,7 +376,7 @@
     </description>
 
     <enum name="error">
-      <entry name="duplicate_session" value="1" summary="get_captuerer_session sent twice"/>
+      <entry name="duplicate_session" value="1" summary="get_capture_session sent twice"/>
     </enum>
 
     <request name="destroy" type="destructor">
@@ -390,7 +390,7 @@
     </request>
 
     <request name="get_capture_session">
-      <description summary="get image copy captuerer session">
+      <description summary="get image copy capturer session">
         Gets the image copy capture session for this cursor session.
 
         The session will produce frames of the cursor image. The compositor may
