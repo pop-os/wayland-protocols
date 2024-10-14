@@ -6,8 +6,8 @@ Uploaders: Héctor Orón Martínez <zumbi@debian.org>,
            Emilio Pozuelo Monfort <pochu@debian.org>
 Build-Depends:
  debhelper-compat (= 13),
- meson (>= 0.55.0),
- libwayland-dev,
+ meson (>= 0.58.0),
+ libwayland-dev (>= 1.20.0),
  pkgconf
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
