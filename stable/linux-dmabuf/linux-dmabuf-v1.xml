@@ -110,7 +110,7 @@
            summary="the new temporary"/>
     </request>
 
-    <event name="format">
+    <event name="format" deprecated-since="4">
       <description summary="supported buffer format">
         This event advertises one buffer format that the server supports.
         All the supported formats are advertised once when the client
@@ -127,7 +127,7 @@
       <arg name="format" type="uint" summary="DRM_FORMAT code"/>
     </event>
 
-    <event name="modifier" since="3">
+    <event name="modifier" since="3" deprecated-since="4">
       <description summary="supported buffer format modifier">
         This event advertises the formats that the server supports, along with
         the modifiers supported for each format. All the supported modifiers

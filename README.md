@@ -86,6 +86,8 @@ tracker. If the protocol isn't ready for complete review yet and is an
 RFC, create a merge request and add the "Draft:" prefix in the title.
 
 To propose changes to existing protocols, create a GitLab merge request.
+Please make sure you CC the authors and maintainers of the protocol, who
+are named in the protocol's README.
 
 Please include a `Signed-off-by` line at the end of the commit to certify
 that you wrote it or otherwise have the right to pass it on as an
