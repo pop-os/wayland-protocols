@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.38',
+	version: '1.39',
 	meson_version: '>= 0.58.0',
 	license: 'MIT/Expat',
 )
@@ -8,7 +8,11 @@ wayland_protocols_version = meson.project_version()
 
 fs = import('fs')
 
-dep_scanner = dependency('wayland-scanner', version: '>=1.20.0', native: true, fallback: 'wayland')
+dep_scanner = dependency('wayland-scanner',
+    version: get_option('tests') ? '>=1.23.0' : '>=1.20.0',
+    native: true,
+    fallback: 'wayland'
+)
 prog_scanner = find_program(dep_scanner.get_variable(pkgconfig: 'wayland_scanner', internal: 'wayland_scanner'))
 
 stable_protocols = {
@@ -45,6 +49,7 @@ staging_protocols = {
 	'content-type': ['v1'],
 	'cursor-shape': ['v1'],
 	'drm-lease': ['v1'],
+	'ext-data-control': ['v1'],
 	'ext-foreign-toplevel-list': ['v1'],
 	'ext-idle-notify': ['v1'],
 	'ext-image-capture-source': ['v1'],
@@ -64,6 +69,7 @@ staging_protocols = {
 	'xdg-toplevel-icon': ['v1'],
 	'xwayland-shell': ['v1'],
 	'alpha-modifier': ['v1'],
+	'ext-workspace': ['v1'],
 }
 
 protocol_files = []
