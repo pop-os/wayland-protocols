@@ -1,3 +1,10 @@
+wayland-protocols (1.39-2) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * debian/control: build depends on libwayland-dev >= 1.23.0.
+
+ -- Dylan Aïssi <daissi@debian.org>  Sun, 05 Jan 2025 18:08:16 +0100
+
 wayland-protocols (1.39-1) unstable; urgency=medium
 
   * Team upload.
