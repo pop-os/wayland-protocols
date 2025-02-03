@@ -3,7 +3,8 @@ Section: x11
 Priority: optional
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Uploaders: Héctor Orón Martínez <zumbi@debian.org>,
-           Emilio Pozuelo Monfort <pochu@debian.org>
+           Emilio Pozuelo Monfort <pochu@debian.org>,
+           Dylan Aïssi <daissi@debian.org>
 Build-Depends:
  debhelper-compat (= 13),
  meson (>= 0.58.0),
