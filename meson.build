@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.40',
+	version: '1.41',
 	meson_version: '>= 0.58.0',
 	license: 'MIT/Expat',
 )
@@ -45,6 +45,7 @@ unstable_protocols = {
 }
 
 staging_protocols = {
+	'color-management': ['v1'],
 	'commit-timing': ['v1'],
 	'content-type': ['v1'],
 	'cursor-shape': ['v1'],
