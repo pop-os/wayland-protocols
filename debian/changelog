@@ -1,3 +1,11 @@
+wayland-protocols (1.41-1) UNRELEASED; urgency=medium
+
+  * New upstream release. (Closes: #1096197, LP: #1844775)
+  * debian/watch: rely on gitlab releases instead of releases.html
+      which tends to be outdated.
+
+ -- Dylan Aïssi <daissi@debian.org>  Mon, 17 Feb 2025 18:02:31 +0100
+
 wayland-protocols (1.40-1) unstable; urgency=medium
 
   * New upstream release.
