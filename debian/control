@@ -12,7 +12,7 @@ Build-Depends:
  pkgconf
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
-Homepage: http://wayland.freedesktop.org/
+Homepage: https://wayland.freedesktop.org/
 Vcs-Git: https://salsa.debian.org/xorg-team/wayland/wayland-protocols.git
 Vcs-Browser: https://salsa.debian.org/xorg-team/wayland/wayland-protocols
 
