@@ -9,7 +9,7 @@ Build-Depends:
  debhelper-compat (= 13),
  meson (>= 0.58.0),
  libwayland-dev (>= 1.23.0),
- pkgconf
+ pkgconf | pkg-config
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 Homepage: https://wayland.freedesktop.org/
