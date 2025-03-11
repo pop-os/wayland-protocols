@@ -1,3 +1,9 @@
+wayland-protocols (1.41-1pop1) jammy; urgency=medium
+
+  * Backport to Jammy
+
+ -- Michael Aaron Murphy <michael@mmurphy.dev>  Tue, 11 Mar 2025 11:59:36 +0100
+
 wayland-protocols (1.41-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #1096197, LP: #1844775)
