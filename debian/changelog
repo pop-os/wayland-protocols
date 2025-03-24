@@ -1,3 +1,12 @@
+wayland-protocols (1.42-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+  * Add autopkgtest
+  * Add debian/salsa-ci.yml
+  * Use httpS for Homepage
+
+ -- Dylan Aïssi <daissi@debian.org>  Mon, 24 Mar 2025 17:26:32 +0100
+
 wayland-protocols (1.41-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #1096197, LP: #1844775)
