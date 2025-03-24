@@ -4,8 +4,10 @@ wayland-protocols (1.42-1) UNRELEASED; urgency=medium
   * Add autopkgtest
   * Add debian/salsa-ci.yml
   * Use httpS for Homepage
+  * wrap-and-sort -a
+  * Update standards version to 4.7.0, no changes needed
 
- -- Dylan Aïssi <daissi@debian.org>  Mon, 24 Mar 2025 17:26:32 +0100
+ -- Dylan Aïssi <daissi@debian.org>  Mon, 24 Mar 2025 17:31:04 +0100
 
 wayland-protocols (1.41-1) unstable; urgency=medium
 
