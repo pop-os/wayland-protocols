@@ -1,8 +1,8 @@
-wayland-protocols (1.42-2) UNRELEASED; urgency=medium
+wayland-protocols (1.42-2) unstable; urgency=medium
 
   * Mark autopkgtest as flaky for now.
 
- -- Dylan Aïssi <daissi@debian.org>  Wed, 26 Mar 2025 17:44:56 +0100
+ -- Dylan Aïssi <daissi@debian.org>  Wed, 26 Mar 2025 17:47:03 +0100
 
 wayland-protocols (1.42-1) unstable; urgency=medium
 
