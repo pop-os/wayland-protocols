@@ -1,3 +1,9 @@
+wayland-protocols (1.43-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Dylan Aïssi <daissi@debian.org>  Wed, 09 Apr 2025 18:11:43 +0200
+
 wayland-protocols (1.42-2) unstable; urgency=medium
 
   * Mark autopkgtest as flaky for now.
