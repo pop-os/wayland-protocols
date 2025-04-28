@@ -1,8 +1,8 @@
-wayland-protocols (1.44-1) UNRELEASED; urgency=medium
+wayland-protocols (1.44-1) unstable; urgency=medium
 
   * New upstream release.
 
- -- Dylan Aïssi <daissi@debian.org>  Mon, 28 Apr 2025 10:59:30 +0200
+ -- Dylan Aïssi <daissi@debian.org>  Mon, 28 Apr 2025 11:01:57 +0200
 
 wayland-protocols (1.43-1) unstable; urgency=medium
 
