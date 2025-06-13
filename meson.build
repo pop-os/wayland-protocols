@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.44',
+	version: '1.45',
 	meson_version: '>= 0.58.0',
 	license: 'MIT/Expat',
 )
@@ -52,6 +52,7 @@ staging_protocols = {
 	'content-type': ['v1'],
 	'cursor-shape': ['v1'],
 	'drm-lease': ['v1'],
+	'ext-background-effect': ['v1'],
 	'ext-data-control': ['v1'],
 	'ext-foreign-toplevel-list': ['v1'],
 	'ext-idle-notify': ['v1'],
@@ -63,6 +64,7 @@ staging_protocols = {
 	'fifo': ['v1'],
 	'fractional-scale': ['v1'],
 	'linux-drm-syncobj': ['v1'],
+	'pointer-warp': ['v1'],
 	'security-context': ['v1'],
 	'single-pixel-buffer': ['v1'],
 	'tearing-control': ['v1'],
@@ -75,33 +77,57 @@ staging_protocols = {
 	'xwayland-shell': ['v1'],
 }
 
-protocol_files = []
+experimental_protocols = {
+	'xx-session-management': ['v1'],
+}
 
+protocol_files = []
+installed_protocol_files = []
+
+stable_protocol_files = []
 foreach name, versions : stable_protocols
 	foreach version : versions
 		if version == ''
-			protocol_files += ['stable/@0@/@0@.xml'.format(name)]
+			stable_protocol_files += ['stable/@0@/@0@.xml'.format(name)]
 		else
-			protocol_files += ['stable/@0@/@0@-@1@.xml'.format(name, version)]
+			stable_protocol_files += ['stable/@0@/@0@-@1@.xml'.format(name, version)]
 		endif
 	endforeach
 endforeach
+installed_protocol_files += stable_protocol_files
+protocol_files += stable_protocol_files
 
+staging_protocol_files = []
 foreach name, versions : staging_protocols
 	foreach version : versions
-		protocol_files += [
+		staging_protocol_files += [
 			'staging/@0@/@0@-@1@.xml'.format(name, version)
 		]
 	endforeach
 endforeach
+installed_protocol_files += staging_protocol_files
+protocol_files += staging_protocol_files
 
+unstable_protocol_files = []
 foreach name, versions : unstable_protocols
 	foreach version : versions
-		protocol_files += [
+		unstable_protocol_files += [
 			'unstable/@0@/@0@-unstable-@1@.xml'.format(name, version)
 		]
 	endforeach
 endforeach
+installed_protocol_files += unstable_protocol_files
+protocol_files += unstable_protocol_files
+
+experimental_protocol_files = []
+foreach name, versions : experimental_protocols
+	foreach version : versions
+		experimental_protocol_files += [
+			'experimental/@0@/@0@-@1@.xml'.format(name, version)
+		]
+	endforeach
+endforeach
+protocol_files += experimental_protocol_files
 
 # Check that each protocol has a README
 foreach protocol_file : protocol_files
@@ -111,7 +137,7 @@ foreach protocol_file : protocol_files
 	endif
 endforeach
 
-foreach protocol_file : protocol_files
+foreach protocol_file : installed_protocol_files
 	protocol_install_dir = fs.parent(join_paths(
 		get_option('datadir'),
 		'wayland-protocols',
