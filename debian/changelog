@@ -1,3 +1,9 @@
+wayland-protocols (1.45-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Dylan Aïssi <daissi@debian.org>  Fri, 13 Jun 2025 18:13:01 +0200
+
 wayland-protocols (1.44-1) unstable; urgency=medium
 
   * New upstream release.
