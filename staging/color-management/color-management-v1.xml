@@ -31,9 +31,14 @@
   <description summary="color management protocol">
     The aim of the color management extension is to allow clients to know
     the color properties of outputs, and to tell the compositor about the color
-    properties of their content on surfaces. Doing this enables a compositor
-    to perform automatic color management of content for different outputs
-    according to how content is intended to look like.
+    properties of their content on surfaces. All surface contents must be
+    readily intended for some display, but not necessarily for the display at
+    hand. Doing this enables a compositor to perform automatic color management
+    of content for different outputs according to how content is intended to
+    look like.
+
+    For an introduction, see the section "Color management" in the Wayland
+    documentation at https://wayland.freedesktop.org/docs/html/ .
 
     The color properties are represented as an image description object which
     is immutable after it has been created. A wl_output always has an
@@ -43,16 +48,17 @@
     description on a wl_surface to denote the color characteristics of the
     surface contents.
 
-    An image description includes SDR and HDR colorimetry and encoding, HDR
-    metadata, and viewing environment parameters. An image description does
-    not include the properties set through color-representation extension.
-    It is expected that the color-representation extension is used in
-    conjunction with the color management extension when necessary,
-    particularly with the YUV family of pixel formats.
+    An image description essentially defines a display and (indirectly) its
+    viewing environment. An image description includes SDR and HDR colorimetry
+    and encoding, HDR metadata, and some parameters related to the viewing
+    environment. An image description does not include the properties set
+    through color-representation extension. It is expected that the
+    color-representation extension is used in conjunction with the
+    color-management extension when necessary, particularly with the YUV family
+    of pixel formats.
 
-    Recommendation ITU-T H.273
-    "Coding-independent code points for video signal type identification"
-    shall be referred to as simply H.273 here.
+    The normative appendix for this protocol is in the appendix.md file beside
+    this XML file.
 
     The color-and-hdr repository
     (https://gitlab.freedesktop.org/pq/color-and-hdr) contains
@@ -154,13 +160,9 @@
 
     <enum name="primaries">
       <description summary="named color primaries">
-        Named color primaries used to encode well-known sets of primaries. H.273
-        is the authority, when it comes to the exact values of primaries and
-        authoritative specifications, where an equivalent code point exists.
+        Named color primaries used to encode well-known sets of primaries.
 
         A value of 0 is invalid and will never be present in the list of enums.
-
-        Descriptions do list the specifications for convenience.
       </description>
 
       <entry name="srgb" value="1">
@@ -173,7 +175,6 @@
           - IEC 61966-2-4
           - Society of Motion Picture and Television Engineers (SMPTE) RP 177
             (1993) Annex B
-          Equivalent to H.273 ColourPrimaries code point 1.
         </description>
       </entry>
       <entry name="pal_m" value="2">
@@ -184,7 +185,6 @@
             Recommendation for transmission standards for color television
           - United States Federal Communications Commission (2003) Title 47 Code
             of Federal Regulations 73.682 (a)(20)
-          Equivalent to H.273 ColourPrimaries code point 4.
         </description>
       </entry>
       <entry name="pal" value="3">
@@ -194,7 +194,6 @@
           - Rec. ITU-R BT.601-7 625
           - Rec. ITU-R BT.1358-0 625 (historical)
           - Rec. ITU-R BT.1700-0 625 PAL and 625 SECAM
-          Equivalent to H.273 ColourPrimaries code point 5.
         </description>
       </entry>
       <entry name="ntsc" value="4">
@@ -205,13 +204,13 @@
           - Rec. ITU-R BT.1700-0 NTSC
           - SMPTE 170M (2004)
           - SMPTE 240M (1999) (historical)
-          Equivalent to H.273 ColourPrimaries code point 6 and 7.
         </description>
       </entry>
       <entry name="generic_film" value="5">
         <description summary="Generic film with colour filters using Illuminant C">
-          Color primaries as defined by H.273 for generic film.
-          Equivalent to H.273 ColourPrimaries code point 8.
+          Color primaries as defined by Recommendation ITU-T H.273
+          "Coding-independent code points for video signal type identification"
+          for "generic film".
         </description>
       </entry>
       <entry name="bt2020" value="6">
@@ -219,7 +218,6 @@
           Color primaries as defined by
           - Rec. ITU-R BT.2020-2
           - Rec. ITU-R BT.2100-0
-          Equivalent to H.273 ColourPrimaries code point 9.
         </description>
       </entry>
       <entry name="cie1931_xyz" value="7">
@@ -228,21 +226,18 @@
           space by
           - SMPTE ST 428-1
           - (CIE 1931 XYZ as in ISO 11664-1)
-          Equivalent to H.273 ColourPrimaries code point 10.
         </description>
       </entry>
       <entry name="dci_p3" value="8">
         <description summary="Color primaries of the DCI P3 color space as defined by the SMPTE RP 431 standard">
           Color primaries as defined by Digital Cinema System and published in
-          SMPTE RP 431-2 (2011). Equivalent to H.273 ColourPrimaries code point
-          11.
+          SMPTE RP 431-2 (2011).
         </description>
       </entry>
       <entry name="display_p3" value="9">
         <description summary="Color primaries of Display P3 variant of the DCI-P3 color space as defined by the SMPTE EG 432 standard">
           Color primaries as defined by Digital Cinema System and published in
           SMPTE EG 432-1 (2010).
-          Equivalent to H.273 ColourPrimaries code point 12.
         </description>
       </entry>
       <entry name="adobe_rgb" value="10">
@@ -256,13 +251,11 @@
     <enum name="transfer_function">
       <description summary="named transfer functions">
         Named transfer functions used to represent well-known transfer
-        characteristics. H.273 is the authority, when it comes to the exact
-        formulas and authoritative specifications, where an equivalent code
-        point exists.
+        characteristics of displays.
 
         A value of 0 is invalid and will never be present in the list of enums.
 
-        Descriptions do list the specifications for convenience.
+        See appendix.md for the formulae.
       </description>
 
       <entry name="bt1886" value="1">
@@ -271,8 +264,6 @@
           - Rec. ITU-R BT.601-7 525 and 625
           - Rec. ITU-R BT.709-6
           - Rec. ITU-R BT.2020-2
-          These recommendations are referred to by H.273 TransferCharacteristics
-          code points 1, 6, 14, and 15, which are all equivalent.
 
           This TF implies these default luminances from Rec. ITU-R BT.2035:
           - primary color volume minimum: 0.01 cd/m²
@@ -289,7 +280,6 @@
           - United States Federal Communications Commission (2003) Title 47 Code
             of Federal Regulations 73.682 (a) (20)
           - Rec. ITU-R BT.1700-0 625 PAL and 625 SECAM
-          Equivalent to H.273 TransferCharacteristics code point 4.
 
           Note: an sRGB display (IEC 61966-2-1) uses this transfer function.
         </description>
@@ -298,50 +288,40 @@
         <description summary="Assumed display gamma 2.8 transfer function">
           Transfer characteristics as defined by
           - Rec. ITU-R BT.470-6 System B, G (historical)
-          Equivalent to H.273 TransferCharacteristics code point 5.
         </description>
       </entry>
       <entry name="st240" value="4">
         <description summary="SMPTE ST 240 transfer function">
           Transfer characteristics as defined by
           - SMPTE ST 240 (1999)
-          Equivalent to H.273 TransferCharacteristics code point 7.
         </description>
       </entry>
       <entry name="ext_linear" value="5">
         <description summary="extended linear transfer function">
           Linear transfer function defined over all real numbers.
           Normalised electrical values are equal the normalised optical values.
-
-          The differences to H.273 TransferCharacteristics code point 8 are
-          the definition over all real numbers.
         </description>
       </entry>
       <entry name="log_100" value="6">
         <description summary="logarithmic 100:1 transfer function">
           Logarithmic transfer characteristic (100:1 range).
-          Equivalent to H.273 TransferCharacteristics code point 9.
         </description>
       </entry>
       <entry name="log_316" value="7">
         <description summary="logarithmic (100*Sqrt(10) : 1) transfer function">
           Logarithmic transfer characteristic (100 * Sqrt(10) : 1 range).
-          Equivalent to H.273 TransferCharacteristics code point 10.
         </description>
       </entry>
       <entry name="xvycc" value="8">
         <description summary="IEC 61966-2-4 transfer function">
           Transfer characteristics as defined by
           - IEC 61966-2-4
-          Equivalent to H.273 TransferCharacteristics code point 11.
         </description>
       </entry>
       <entry name="srgb" value="9">
         <description summary="sRGB piece-wise transfer function">
           Transfer characteristics as defined by
           - IEC 61966-2-1 sRGB
-          Equivalent to H.273 TransferCharacteristics code point 13 with
-          MatrixCoefficients set to 0.
 
           Note: This is not appropriate for describing sRGB material.
           sRGB material is intended to be viewed on an sRGB display, and
@@ -352,8 +332,6 @@
         <description summary="Extended sRGB piece-wise transfer function">
           Transfer characteristics as defined by
           - IEC 61966-2-1 sYCC
-          Equivalent to H.273 TransferCharacteristics code point 13 with
-          MatrixCoefficients set to anything but 0.
         </description>
       </entry>
       <entry name="st2084_pq" value="11">
@@ -361,7 +339,6 @@
           Transfer characteristics as defined by
           - SMPTE ST 2084 (2014) for 10-, 12-, 14- and 16-bit systems
           - Rec. ITU-R BT.2100-2 perceptual quantization (PQ) system
-          Equivalent to H.273 TransferCharacteristics code point 16.
 
           This TF implies these default luminances
           - primary color volume minimum: 0.005 cd/m²
@@ -379,7 +356,6 @@
         <description summary="SMPTE ST 428 transfer function">
           Transfer characteristics as defined by
           - SMPTE ST 428-1 (2019)
-          Equivalent to H.273 TransferCharacteristics code point 17.
         </description>
       </entry>
       <entry name="hlg" value="13">
@@ -387,7 +363,6 @@
           Transfer characteristics as defined by
           - ARIB STD-B67 (2015)
           - Rec. ITU-R BT.2100-2 hybrid log-gamma (HLG) system
-          Equivalent to H.273 TransferCharacteristics code point 18.
 
           This TF implies these default luminances
           - primary color volume minimum: 0.005 cd/m²
@@ -699,17 +674,17 @@
         All image descriptions which are ready (see wp_image_description_v1)
         are allowed and must always be accepted by the compositor.
 
-        A rendering intent provides the client's preference on how content
-        colors should be mapped to each output. The render_intent value must
-        be one advertised by the compositor with
+        When an image description is set on a surface, it establishes an
+        explicit link between surface pixel values and surface colorimetry.
+        This link may be undefined for some pixel values, see the image
+        description creator interfaces for the conditions. Non-finite
+        floating-point values (NaN, Inf) always have an undefined colorimetry.
+
+        A rendering intent provides the client's preference on how surface
+        colorimetry should be mapped to each output. The render_intent value
+        must be one advertised by the compositor with
         wp_color_manager_v1.render_intent event, otherwise the protocol error
         render_intent is raised.
-
-        When an image description is set on a surface, the Transfer
-        Characteristics of the image description defines the valid range of
-        the nominal (real-valued) color channel values. The processing of
-        out-of-range color channel values is undefined, but compositors are
-        recommended to clamp the values to the valid range when possible.
 
         By default, a surface does not have an associated image description
         nor a rendering intent. The handling of color on such surfaces is
@@ -859,6 +834,10 @@
       Once all properties have been set, the create request must be used to
       create the image description object, destroying the creator in the
       process.
+
+      The link between a pixel value (a device value in ICC) and its respective
+      colorimetry is defined by the details of the particular ICC profile.
+      Those details also determine when colorimetry becomes undefined.
     </description>
 
     <enum name="error">
@@ -984,6 +963,20 @@
       Once all properties have been set, the create request must be used to
       create the image description object, destroying the creator in the
       process.
+
+      A viewer, who is viewing the display defined by the resulting image
+      description (the viewing environment included), is assumed to be fully
+      adapted to the primary color volume's white point.
+
+      Any of the following conditions will cause the colorimetry of a pixel
+      to become undefined:
+      - Values outside of the defined range of the transfer characteristic.
+      - Tristimulus that exceeds the target color volume.
+      - If extended_target_volume is not supported: tristimulus that exceeds
+      the primary color volume.
+
+      The closest correspondence to an image description created through this
+      interface is the Display class of profiles in ICC.
     </description>
 
     <enum name="error">
@@ -1045,7 +1038,7 @@
         functions.
 
         When the resulting image description is attached to an image, the
-        content should be encoded and decoded according to the industry standard
+        content should be decoded according to the industry standard
         practices for the transfer characteristic.
 
         Only names advertised with wp_color_manager_v1 event supported_tf_named
@@ -1066,9 +1059,6 @@
         positive half of the curve through the origin. The valid domain and
         range of the curve are all finite real numbers. This curve represents
         the conversion from electrical to optical color channel values.
-
-        When the resulting image description is attached to an image, the
-        content should be encoded with the inverse of the power curve.
 
         The curve exponent shall be multiplied by 10000 to get the argument eexp
         value to carry the precision of 4 decimals.
@@ -1135,8 +1125,8 @@
     <request name="set_luminances">
       <description summary="primary color volume luminance range and reference white">
         Sets the primary color volume luminance range and the reference white
-        luminance level. These values include the minimum display emission
-        and ambient flare luminances, assumed to be optically additive and have
+        luminance level. These values include the minimum display emission, but
+        not external flare. The minimum display emission is assumed to have
         the chromaticity of the primary color volume white point.
 
         The default luminances from
@@ -1318,11 +1308,13 @@
 
   <interface name="wp_image_description_v1" version="1">
     <description summary="Colorimetric image description">
-      An image description carries information about the color encoding used on
-      a surface when attached to a wl_surface via
+      An image description carries information about the pixel color encoding
+      and its intended display and viewing environment. The image description is
+      attached to a wl_surface via
       wp_color_management_surface_v1.set_image_description. A compositor can use
       this information to decode pixel values into colorimetrically meaningful
-      quantities.
+      quantities, which allows the compositor to transform the surface contents
+      to become suitable for various displays and viewing environments.
 
       Note, that the wp_image_description_v1 object is not ready to be used
       immediately after creation. The object eventually delivers either the

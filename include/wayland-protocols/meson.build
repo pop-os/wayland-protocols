@@ -1,7 +1,7 @@
 header_install_dir = get_option('includedir') / 'wayland-protocols'
 foreach protocol_file : protocol_files
 	header_name = fs.name(protocol_file).replace('.xml', '-enum.h')
-	custom_target(
+	headers += custom_target(
 		header_name,
 		output: header_name,
 		input: '../..' / protocol_file,

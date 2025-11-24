@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.45',
+	version: '1.46',
 	meson_version: '>= 0.58.0',
 	license: 'MIT/Expat',
 )
@@ -78,7 +78,9 @@ staging_protocols = {
 }
 
 experimental_protocols = {
+	'xx-input-method': ['v2'],
 	'xx-session-management': ['v1'],
+	'xx-text-input': ['v3'],
 }
 
 protocol_files = []
@@ -150,6 +152,7 @@ foreach protocol_file : installed_protocol_files
 endforeach
 
 include_dirs = []
+headers = []
 if dep_scanner.version().version_compare('>=1.22.90')
 	subdir('include/wayland-protocols')
 	include_dirs = ['include']
@@ -159,6 +162,7 @@ wayland_protocols_srcdir = meson.current_source_dir()
 
 pkgconfig_configuration = configuration_data()
 pkgconfig_configuration.set('prefix', get_option('prefix'))
+pkgconfig_configuration.set('includedir', '${prefix}/@0@'.format(get_option('includedir')))
 pkgconfig_configuration.set('datarootdir', '${prefix}/@0@'.format(get_option('datadir')))
 pkgconfig_configuration.set('abs_top_srcdir', wayland_protocols_srcdir)
 pkgconfig_configuration.set('PACKAGE', 'wayland-protocols')
@@ -183,6 +187,7 @@ wayland_protocols = declare_dependency(
 	variables: {
 		'pkgdatadir': wayland_protocols_srcdir,
 	},
+	sources: headers,
 )
 
 meson.override_dependency('wayland-protocols', wayland_protocols)
