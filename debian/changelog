@@ -1,6 +1,8 @@
 wayland-protocols (1.46-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * d/u/signing-key.asc: Add Simon Ser's public key
+  * d/gbp.conf: Add more options
 
  -- Dylan Aïssi <daissi@debian.org>  Mon, 24 Nov 2025 21:42:43 +0100
 
