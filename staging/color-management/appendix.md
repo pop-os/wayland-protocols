@@ -53,6 +53,22 @@ The above are specified by [ITU-R BT.1886].
 Note, that $`E < 0`$ and $`E > 1`$ are possible with limited range
 quantization, as required by e.g. the calibration method in [ITU-R BT.814].
 
+### `compound_power_2_4`
+
+```math
+O = \begin{cases}
+\frac{E}{12.92}, & 0 \leq E < 0.04045\\
+\left( \frac{E + 0.055}{1.055} \right)^{2.4}, & 0.04045 \leq E \leq 1
+\end{cases}
+```
+
+The above is the IEC 61966-2-1 piece-wise transfer function,
+as recorded in [Khronos Data Format Specification][KDFS] 1.4.0
+Section 13.3, and restricted to the unit range.
+
+```math
+L = (L_W - L_B)O + L_B
+```
 
 ### `gamma22`
 
@@ -125,3 +141,4 @@ L = 10'000\ \mathrm{cd/m²} \cdot O + L_B
 [ITU-R BT.814]: https://gitlab.freedesktop.org/pq/color-and-hdr/-/blob/main/doc/specs.md#itu-r-bt814
 [ITU-R BT.1886]: https://gitlab.freedesktop.org/pq/color-and-hdr/-/blob/main/doc/specs.md#itu-r-bt1886
 [ITU-R BT.2100]: https://gitlab.freedesktop.org/pq/color-and-hdr/-/blob/main/doc/specs.md#itu-r-bt2100
+[KDFS]: https://registry.khronos.org/DataFormat/
