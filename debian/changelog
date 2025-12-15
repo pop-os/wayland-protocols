@@ -1,9 +1,9 @@
-wayland-protocols (1.47-1) UNRELEASED; urgency=medium
+wayland-protocols (1.47-1) unstable; urgency=medium
 
   * New upstream release
   * Remove redundant "Rules-Requires-Root: no"
 
- -- Dylan Aïssi <daissi@debian.org>  Mon, 15 Dec 2025 17:00:50 +0100
+ -- Dylan Aïssi <daissi@debian.org>  Mon, 15 Dec 2025 17:10:57 +0100
 
 wayland-protocols (1.46-1) unstable; urgency=medium
 
