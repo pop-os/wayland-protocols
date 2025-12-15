@@ -1,6 +1,7 @@
 wayland-protocols (1.47-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * Remove redundant "Rules-Requires-Root: no"
 
  -- Dylan Aïssi <daissi@debian.org>  Mon, 15 Dec 2025 17:00:50 +0100
 
