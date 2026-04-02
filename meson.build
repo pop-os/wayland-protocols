@@ -1,5 +1,5 @@
 project('wayland-protocols',
-	version: '1.47',
+	version: '1.48',
 	meson_version: '>= 0.58.0',
 	license: 'MIT/Expat',
 )
@@ -70,6 +70,7 @@ staging_protocols = {
 	'tearing-control': ['v1'],
 	'xdg-activation': ['v1'],
 	'xdg-dialog': ['v1'],
+	'xdg-session-management': ['v1'],
 	'xdg-system-bell': ['v1'],
 	'xdg-toplevel-drag': ['v1'],
 	'xdg-toplevel-icon': ['v1'],
@@ -78,9 +79,12 @@ staging_protocols = {
 }
 
 experimental_protocols = {
+	'xx-cutouts': ['v1'],
 	'xx-input-method': ['v2'],
+	'xx-keyboard-filter': ['v1'],
 	'xx-session-management': ['v1'],
 	'xx-text-input': ['v3'],
+	'xx-zones': ['v1'],
 }
 
 protocol_files = []
@@ -158,34 +162,29 @@ if dep_scanner.version().version_compare('>=1.22.90')
 	include_dirs = ['include']
 endif
 
-wayland_protocols_srcdir = meson.current_source_dir()
+pkgconfig = import('pkgconfig')
 
-pkgconfig_configuration = configuration_data()
-pkgconfig_configuration.set('prefix', get_option('prefix'))
-pkgconfig_configuration.set('includedir', '${prefix}/@0@'.format(get_option('includedir')))
-pkgconfig_configuration.set('datarootdir', '${prefix}/@0@'.format(get_option('datadir')))
-pkgconfig_configuration.set('abs_top_srcdir', wayland_protocols_srcdir)
-pkgconfig_configuration.set('PACKAGE', 'wayland-protocols')
-pkgconfig_configuration.set('WAYLAND_PROTOCOLS_VERSION', wayland_protocols_version)
-
-pkg_install_dir = join_paths(get_option('datadir'), 'pkgconfig')
-configure_file(
-	input: 'wayland-protocols.pc.in',
-	output: 'wayland-protocols.pc',
-	configuration: pkgconfig_configuration,
-	install_dir: pkg_install_dir,
-)
-
-configure_file(
-	input: 'wayland-protocols-uninstalled.pc.in',
-	output: 'wayland-protocols-uninstalled.pc',
-	configuration: pkgconfig_configuration,
+pkgconfig.generate(
+	filebase: 'wayland-protocols',
+	name: 'Wayland Protocols',
+	description: 'Wayland protocol files',
+	dataonly: true,
+	variables: {
+		'prefix': get_option('prefix'),
+		'includedir': '${prefix}/@0@'.format(get_option('includedir')),
+		'datarootdir': '${prefix}/@0@'.format(get_option('datadir')),
+		'pkgdatadir': '${pc_sysrootdir}${datarootdir}/wayland-protocols'
+	},
+	uninstalled_variables: {
+		'includedir': meson.current_build_dir() / 'include',
+		'pkgdatadir': meson.project_source_root(),
+	},
 )
 
 wayland_protocols = declare_dependency(
 	include_directories: include_dirs,
 	variables: {
-		'pkgdatadir': wayland_protocols_srcdir,
+		'pkgdatadir': meson.project_source_root(),
 	},
 	sources: headers,
 )
