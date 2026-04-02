@@ -1,11 +1,11 @@
-wayland-protocols (1.48-1) UNRELEASED; urgency=medium
+wayland-protocols (1.48-1) unstable; urgency=medium
 
   * New upstream release
   * Remove redundant 'Priority: optional'
   * Remove debian/README.source
   * Bump Standards-Version to 4.7.4
 
- -- Dylan Aïssi <daissi@debian.org>  Thu, 02 Apr 2026 16:42:57 +0200
+ -- Dylan Aïssi <daissi@debian.org>  Thu, 02 Apr 2026 16:47:37 +0200
 
 wayland-protocols (1.47-1) unstable; urgency=medium
 
