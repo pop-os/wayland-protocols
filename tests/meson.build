@@ -7,7 +7,7 @@ libwayland = [
 
 # Check that each protocol passes through the scanner
 foreach protocol_file : protocol_files
-	protocol_path = join_paths(wayland_protocols_srcdir, protocol_file)
+	protocol_path = join_paths(meson.project_source_root(), protocol_file)
 	test_name = 'scan-@0@'.format(protocol_file.underscorify())
 	test(test_name, prog_scan_sh,
 		args: protocol_path,
@@ -31,7 +31,7 @@ foreach protocol_file : protocol_files
 	xml_components = xml_file.split('.')
 	protocol_base_file_name = xml_components[0]
 
-	protocol_path = files(join_paths(wayland_protocols_srcdir, protocol_file))
+	protocol_path = files(join_paths(meson.project_source_root(), protocol_file))
 	client_header_path = '@0@-client.h'.format(protocol_base_file_name)
 	server_header_path = '@0@-server.h'.format(protocol_base_file_name)
 	code_path = '@0@-code.c'.format(protocol_base_file_name)

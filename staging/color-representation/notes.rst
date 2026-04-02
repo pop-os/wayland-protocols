@@ -71,7 +71,7 @@ inverse steps, including the transfer characteristics which are not defined by
 this protocol to convert the encoding back to tristimulus values with color
 primaries which are also not defined by this protocol.
 
-Some ``MatrixCoefficients`` code points require applying formulas or infering
+Some ``MatrixCoefficients`` code points require applying formulas or inferring
 constants from the transfer characteristics or color primaries of the image.
 Compositors should not advertise support for such code points if the client
 can't communicate the transfer characteristics and color primaries to the

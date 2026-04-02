@@ -16,29 +16,30 @@ compositor and client developers. The governance rules are described in
 
 ## Protocol phases
 
-Protocols in general have three phases: the development phase, the testing
-phase, and the stable phase.
+Protocols have three currently used phases: the experimental phase, the staging
+phase, and the stable phase. Anything that is merged upstream is in one of
+those phases, with the exception of deprecated protocols and protocols in
+the legacy protocol phases.
 
-In the development phase, a protocol may be added to wayland-protocols
-as `experimental/`. It is actively being developed, for example by
-iterating over it in a [merge request] or planning it in an [issue].
-Extensions in this phase can have backward incompatible changes.
+Backward-incompatible changes can only be introduced in a new major version of
+a protocol. In the experimental phase, a protocol is actively being
+developed and iterated upon, not trying to avoid incompatible changes.
+Protocols in the staging phase should try to minimize backward-incompatible
+changes, and protocols in the stable phase should avoid backward-incompatible
+changes.
 
-During this phase, patches for clients and compositors are written as a test
-vehicle. Such patches should be merged with caution in clients and compositors,
-because the protocol can still change.
+Anything that is not merged upstream can be iterated and broken freely, but
+care should be taken to ensure that there are no two protocols with the same
+name and version but a different API.
+
+During the experimental phase, patches for clients and compositors are written
+as a test vehicle. Such patches should be merged with caution in clients and
+compositors, because the protocol can still change.
 
 When a protocol has reached a stage where it is ready for wider adoption,
-and after the [GOVERNANCE section 2.3] requirements have been met, it enters
-the "testing" phase. At this point, the protocol is added to the `staging/`
-directory of wayland-protocols and made part of a release. What this means is
-that implementation is encouraged in clients and compositors where the
-functionality it specifies is wanted.
-
-Extensions in staging cannot have backward incompatible changes, in that
-sense they are equal to stable extensions. However, they may be completely
-replaced with a new major version, or a different protocol extension altogether,
-if design flaws are found in the testing phase.
+it enters the "staging" phase. What this means is that implementation is
+encouraged in clients and compositors where the functionality it specifies is
+wanted.
 
 After a staging protocol has been sufficiently tested in the wild and
 proven adequate, its maintainers and the community at large may declare it
@@ -54,11 +55,10 @@ will be made to a deprecated protocol.
 ## Legacy protocol phases
 
 An "unstable" protocol refers to a protocol categorization policy
-previously used by wayland-protocols, where protocols initially
-placed in the `unstable/` directory had certain naming conventions were
+previously used by wayland-protocols, where certain naming conventions were
 applied, requiring a backward incompatible change to be declared "stable".
 
-During this phase, protocol extension interface names were, in addition to
+During this phase, protocol interface names were, in addition to
 the major version postfix, also prefixed with `z` to distinguish them from
 stable protocols.
 
@@ -67,8 +67,9 @@ stable protocols.
 Depending on which stage a protocol is in, the protocol is placed within
 the toplevel directory containing the protocols with the same stage.
 Stable protocols are placed in the `stable/` directory, staging protocols
-are placed in the `staging/` directory, and deprecated protocols are
-placed in the `deprecated/` directory.
+are placed in the `staging/` directory, experimental protocols are placed
+in the `experimental/` directory, and deprecated protocols are placed in
+the `deprecated/` directory.
 
 Unstable protocols (see [Legacy protocol phases]) can be found in the
 `unstable/` directory, but new ones should never be placed here.
@@ -139,17 +140,6 @@ corresponding to the major version 1, as well as the newer version
 `foo-bar/foo-bar-v2.xml` consisting of the interface `wp_foo_bar_v2`,
 corresponding to the major version 2.
 
-## Include a disclaimer
-
-Include the following disclaimer:
-
-```
-Warning! The protocol described in this file is currently in the testing
-phase. Backward compatible changes may be added together with the
-corresponding interface version bump. Backward incompatible changes can
-only be done by creating a new major version of the extension.
-```
-
 ## Use of RFC 2119 keywords
 
 Descriptions of all new protocols must use (in lowercase) and adhere to the
@@ -175,26 +165,10 @@ A protocol may receive backward compatible additions and changes. This
 is to be done in the general Wayland way, using `version` and `since` XML
 element attributes.
 
-## Backward incompatible protocol changes for experimental protocols
+## Backward incompatible protocol changes
 
-A protocol in the experimental phase should expect to see backward incompatible
-changes at any time.
-
-Assuming a backward incompatible change is needed here, the procedure for how to
-do so is the following:
-
-- Increase the major version number in the protocol XML by 1.
-- Increase the major version number in all of the interfaces in the
-  XML by 1.
-- Reset the interface version number (interface version attribute) of all
-  the interfaces to 1.
-- Remove all of the `since` attributes.
-
-## Backward incompatible protocol changes for testing protocols
-
-While not preferred, a protocol may at any stage, especially during the
-testing phase, when it is located in the `staging/` directory, see
-backward incompatible changes.
+Protocols shall try to avoid backwards incompatible protocol changes during
+the staging and stable phases.
 
 Assuming a backward incompatible change is needed, the procedure for how to
 do so is the following:
@@ -207,7 +181,7 @@ do so is the following:
   the interfaces to 1.
 - Remove all of the `since` attributes.
 
-## Experimental Protocols: Development Recommendations
+## The experimental phase
 
 Implementations choosing to support experimental protocols must work to
 support the latest version of the protocol at all times. It is therefore
@@ -217,26 +191,46 @@ have time and resources to actively develop.
 A runtime option to enable features may also be useful to ensure users
 do not opt-in to potentially broken behavior.
 
-There is no expectation or requirement for stability between experimental
-protocol versions. It is therefore strongly advised that such consumer
-projects add build-time compile options to enable such protocols in order
-to avoid compile errors from protocol version mismatches.
+There is no expectation or requirement to avoid backwards incompatible changes
+in this phase. It is therefore strongly advised that such consumer projects add
+build-time compile options to enable such protocols in order to avoid compile
+errors from protocol version mismatches.
 
-## Promoting a protocol from experimental
+## The staging phase
 
-The author of an experimental protocol can request that it be promoted at any point
-when it meets the requirements for `staging/`. At such time,
-the namespace prefix should be determined, and then the protocol should be
-renamed and merged into the appropriate directory, deleting the `experimental/`
-entry.
+Protocols can enter the wayland-protocols repository in this stage, without
+traversing the experimental phase. The author of an experimental protocol can
+request that it be promoted at any point.
 
-## Declaring a protocol stable
+In both cases, the protocol must meet the requirements of
+[GOVERNANCE section 2.3] for the staging phase.
+
+Protocols in the staging phase must carry the following disclaimer:
+
+```
+Warning! The protocol described in this file is currently in the staging
+phase. Backward compatible changes may be added together with the
+corresponding interface version bump. Backward incompatible changes can
+only be done by creating a new major version of the protocol.
+```
+
+When a protocol gets promoted from the experimental phase, the namespace prefix
+should be determined, and then the protocol should be renamed and merged into
+the appropriate directory, deleting the `experimental/` entry.
+
+## The stable phase
 
 Once it has been concluded that a protocol been proven adequate in
 production, and that it is deemed unlikely to receive any backward
 incompatible changes, it may be declared stable.
 
-The procedure of doing this is the following:
+There are other requirements for declaring a protocol stable, see
+[GOVERNANCE section 2.3].
+
+Note that the major version of the stable protocol, as well as all the
+interface versions and names, must remain unchanged.
+
+The procedure of promoting a protocol to the stable phase is the following:
 
 - Create a new directory in the `stable/` toplevel directory with the
   same name as the protocol directory in the `staging/` directory.
@@ -244,23 +238,17 @@ The procedure of doing this is the following:
   decided to be declared stable into the new directory. The target name
   should be the same name as the protocol directory plus the version and
   the `.xml` suffix.
-- Remove the disclaimer about the protocol being in the testing phase.
+- Remove the disclaimer about the protocol being in the staging phase.
 - Update the `README` file in the staging directory and create a new
   `README` file in the new directory.
 - Replace the disclaimer in the protocol files left in the staging/
   directory with the following:
 
 ```
-Disclaimer: This protocol extension has been marked stable. This copy is
+Disclaimer: This protocol has been marked stable. This copy is
 no longer used and only retained for backwards compatibility. The
 canonical version can be found in the stable/ directory.
 ```
-
-Note that the major version of the stable protocol extension, as well as
-all the interface versions and names, must remain unchanged.
-
-There are other requirements for declaring a protocol stable, see
-[GOVERNANCE section 2.3].
 
 ## Releases
 
