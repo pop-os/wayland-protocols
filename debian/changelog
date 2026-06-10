@@ -1,6 +1,7 @@
 wayland-protocols (1.49-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * Update debian/copyright
 
  -- Dylan Aïssi <daissi@debian.org>  Wed, 10 Jun 2026 08:49:34 +0200
 

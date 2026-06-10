@@ -21,9 +21,31 @@ Copyright: © 2008-2013      Kristian Høgsberg
            © 2018           Simon Ser
 License: Expat
 
+Files: experimental/xx-text-input/xx-text-input-v3.xml
+       staging/ext-data-control/ext-data-control-v1.xml
+       staging/ext-foreign-toplevel-list/ext-foreign-toplevel-list-v1.xml
+       staging/ext-workspace/ext-workspace-v1.xml
+       unstable/pointer-gestures/pointer-gestures-unstable-v1.xml
+       unstable/text-input/text-input-unstable-v3.xml
+Copyright: © 2012-2013 Intel Corporation
+           © 2015-2016 Jan Arne Petersen
+           © 2015-2021 Red Hat, Inc.
+           © 2018 Purism SPC
+           © 2025 DorotaC
+           © 2018 Simon Ser
+           © 2019 Ivan Molodetskikh
+           © 2024 Neal Gompa
+           © 2018-2020 Ilia Bozhinov
+           © 2020 Isaac Freund
+           © 2022 wb9688
+           © 2023 i509VCB
+           © 2019 Christopher Billington
+           © 2022 Victoria Brekenfeld
+License: HPND-sell-variant
+
 Files: debian/*
 Copyright: © 2016-2023 Héctor Orón Martínez <zumbi@debian.org>
-           © 2024      Dylan Aïssi <daissi@debian.org>
+           © 2024-2026 Dylan Aïssi <daissi@debian.org>
 License: Expat
 
 License: Expat
@@ -51,3 +73,25 @@ License: Expat
  The above is the version of the MIT "Expat" License used by X.org:
  .
     http://cgit.freedesktop.org/xorg/xserver/tree/COPYING
+
+License: HPND-sell-variant
+ Permission to use, copy, modify, distribute, and sell this
+ software and its documentation for any purpose is hereby granted
+ without fee, provided that the above copyright notice appear in
+ all copies and that both that copyright notice and this permission
+ notice appear in supporting documentation, and that the name of
+ the copyright holders not be used in advertising or publicity
+ pertaining to distribution of the software without specific,
+ written prior permission.  The copyright holders make no
+ representations about the suitability of this software for any
+ purpose.  It is provided "as is" without express or implied
+ warranty.
+ .
+ THE COPYRIGHT HOLDERS DISCLAIM ALL WARRANTIES WITH REGARD TO THIS
+ SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ FITNESS, IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
+ AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+ THIS SOFTWARE.
