@@ -31,10 +31,12 @@ linux-dmabuf feedback introduces the following concepts:
    appropriate format/modifier and also to avoid allocating in private device
    memory when cross-device operations are going to happen.
 
-linux-dmabuf feedback implementation notes
-==========================================
+3. Starting with version 6, the assumption of a single main device is removed.
+   Clients should instead use the target device of any tranche marked with the
+   ``sampling`` flag instead.
 
-This section contains recommendations for client and compositor implementations.
+linux-dmabuf feedback implementation notes for version 4 and 5
+==============================================================
 
 For clients
 -----------
@@ -161,6 +163,29 @@ Compositors can decide to use intermediate tranches to describe code-paths
 slower than direct scan-out but faster than texturing. For instance, a
 compositor could insert an intermediate tranche if it's possible to use a
 mem2mem device to convert buffers to be able to use scan-out.
+
+linux-dmabuf feedback implementation nodes for version 6
+==========================================
+
+With version 6 of the protocol, most of the logic described for version 4 still
+stands, with a few exceptions:
+
+- the main device is no longer sent. If the client needs an equivalent to the
+  main device, the target device of the first tranche of the default feedback
+  with the ``sampling`` flag can be used.
+- compositors should send tranches with the ``sampling`` flag for all devices
+  they can sample from without triggering buffer migrations.
+- clients are strongly recommended to set the device they allocated buffers for
+  with ``wp_linux_buffer_params.set_sampling_device``. This avoids both implicit
+  buffer migrations and unnecessary copies by the compositor.
+- compositors should avoid directly importing buffers into devices other than the
+  one set by the client with the ``sampling`` device whenever possible, to avoid
+  implicit buffer migrations by the graphics driver (which can reduce performance
+  significantly)
+- if the compositor wishes a client to change which device it's rendering on, it
+  can change the order of tranches (and thus devices) in the per-surface feedback.
+  In response, clients that are capable of switching devices should re-allocate
+  on the first device they can use.
 
 ``dev_t`` encoding
 ==================
