@@ -1,3 +1,9 @@
+wayland-protocols (1.49-1pop1) resolute; urgency=medium
+
+  * Backport
+
+ -- Michael Murphy <michael@mmurphy.dev>  Tue, 03 Nov 2026 17:43:44 +0100
+
 wayland-protocols (1.49-1) unstable; urgency=medium
 
   * New upstream release
